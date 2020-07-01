@@ -1,0 +1,385 @@
+<Application value="WalmartIntegrationApp">
+
+<Page name="DashboardPage">
+
+		<Element name="Product_Module" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Product']" />
+
+<Element name="ShopifyUrlTextbox" type="TextBox" locator="xpath"
+			selector="//div[@class='input-container']/div/div/child::input" />			
+			
+			<Element name="ShopifyLogin" type="TextBox" locator="xpath"
+			selector="//label[contains(@class,'next-label') and text()='Email']/following-sibling::input" />	
+			
+			<Element name="NextButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'ui-button') and text()='Next']" />
+			
+			<Element name="ShopifyPassword" type="TextBox" locator="xpath"
+			selector="//div[contains(@class,'next-field__connected-wrapper ui-password')]/child::input" />
+			
+			<Element name="LoginButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'ui-button') and text()='Log in']" />
+			
+			<Element name="Dashboard" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Dashboard']" />
+			
+			<Element name="Product_ManageProducts" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Manage Products')]" />
+			
+			<Element name="Product_CategoryMapping" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Category Mapping')]" />
+			
+			<Element name="Product_AttributeMapping" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Attribute Mapping')]" />
+			
+			<Element name="Product_ProductTaxcode" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Product Taxcode')]" />
+			
+			<Element name="Product_Repricing" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Repricing')]" />
+			
+			<Element name="Product_LagTime" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Lag Time')]" />
+			
+			<Element name="Product_ShareProduct" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Share Product')]" />
+			
+			<Element name="Product_NotInAppProducts" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Not In App Products')]" />
+			
+			<Element name="ImportProducts" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Import Products']" />
+			
+			<Element name="WalmartFeeds" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Walmart Feeds']" />
+			
+			<Element name="Order" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Order']" />
+			
+			<Element name="Order_SalesOrder" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Sales Order')]" />
+			
+			<Element name="Order_FailedOrder" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Failed Order')]" />
+			
+			<Element name="ImportExport" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Import Export']" />
+			
+			<Element name="ImportExport_ProductUpdate" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Product Update')]" />
+			
+			<Element name="ImportExport_RetireProduct" type="Link" locator="xpath"
+			selector="//a[contains(.,'Retire Product')]" />
+			
+			<Element name="ImportExport_UploadProduct" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Upload Product')]" />
+			
+			<Element name="ImportExport_AdvancedAttributes" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Advanced Attributes')]" />
+			
+			<Element name="ImportExport_ShippingExceptions" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Shipping Exceptions')]" />
+			
+			<Element name="Promotion" type="Link" locator="xpath"
+			selector="//span[contains(.,'Promotion')]" />
+			
+			<Element name="Promotion_ManagePromotion" type="Link" locator="xpath"
+			selector="//a[contains(.,'Manage Promotion')]" />
+			
+			<Element name="Promotion_PromotionFeed" type="Link" locator="xpath"
+			selector="//a[contains(.,'Promotion Feed')]" />
+			
+			<Element name="Help" type="Link" locator="xpath"
+			selector="//a[contains(.,'Help')]" />
+			
+			<Element name="Help_KnowledgeBase" type="Link" locator="xpath"
+			selector="//a[contains(.,'Knowledge Base')]" />
+			
+			<Element name="Help_Documentation" type="Link" locator="xpath"
+			selector="//a[contains(.,'Documentation')]" />
+			
+			<Element name="Help_WalmartBlog" type="Link" locator="xpath"
+			selector="//a[contains(.,'Walmart Blog')]" />
+			
+			<Element name="Settings" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Settings']" />
+			
+			<Element name="PricingPlan" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Pricing Plan']" />
+			
+			<Element name="RightContent" type="Link" locator="xpath"
+			selector="//div[@class='Polaris-TextContainer']/p" />
+			
+			<Element name="AdminUsername" type="TextBox" locator="xpath"
+			selector="//label[contains(@class,'control-label') and text()='Username']/following-sibling::input" />
+			
+			<Element name="AdminPassword" type="TextBox" locator="xpath"
+			selector="//label[contains(@class,'control-label') and text()='Password']/following-sibling::input" />
+			
+			<Element name="WalmartDropdown" type="Link" locator="xpath"
+			selector="(//a[@class='dropdown-toggle']/child::span[contains(text(),'Walmart')])[1]" />
+			
+			<Element name="WalmartShopDetails" type="Link" locator="xpath"
+			selector="//a[@href='/walmartshopdetails/index']" />
+			
+			<Element name="ShopNameTextBox" type="TextBox" locator="xpath"
+			selector="//input[contains(@name,'shop_name')]" />
+			
+			<Element name="LoginAsButton" type="Link" locator="xpath"
+			selector="//a[@title='Login As']" />
+			
+			<Element name="Product_ManageProduct" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Manage Products')]" />
+			
+			<Element name="FirstCheckbox" type="Link" locator="xpath"
+			selector="(//span[@class='Polaris-Checkbox'])[1]" />
+			
+			<Element name="Pagination" type="Link" locator="xpath"
+			selector="//li[@class='next']/a[contains(text(),'»')]" />
+			
+			<Element name="SelectAllItems" type="Link" locator="xpath"
+			selector="//div[@class='action-summary']/following::a[contains(@class,'select_all_link')]" />
+			
+			<Element name="Okbutton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'Polaris-Button Polaris-Button--primary')]/following::span[contains(@class,'Polaris-Button__Content')]/child::span[contains(text(),'Ok')]" />
+			
+			<Element name="BulkActionDropdown" type="Link" locator="xpath"
+			selector="//div[@class='actions-bulk']/following::select[@id='product_select']"/>
+			
+			<Element name="SyncwithShopifyinDropdown" type="Link" locator="xpath"
+			selector="//div[@class='actions-bulk']/following::select[@id='product_select']/child::option[contains(text(),'Sync With Shopify')]"/>
+			
+			<Element name="ActionButton" type="Link" locator="xpath"
+			selector="//div[@class='custom_polaris_bulk_action']/div/child::div[@class='actions-bulk']/child::button"/>
+			
+			<Element name="SyncButton" type="Link" locator="xpath"
+			selector="//button[@id='sync-yes']/span"/>
+			
+			<Element name="UpdateInventory" type="Link" locator="xpath"
+			selector="//div[@class='actions-bulk']/following::select[@id='product_select']/child::option[contains(text(),'Update Inventory')]"/>
+			
+			<Element name="ErrorMessage" type="Link" locator="xpath"
+			selector="//div[@class='Polaris-Banner__Heading']/span[@id='errorHeading']"/>
+			
+			<Element name="BacktoPreviousButton" type="Link" locator="xpath"
+			selector="//span[@class='Polaris-Button__Content']/child::span[contains(text(),'Back To Previous')]"/>
+					
+			</Page>
+			
+			
+			<Page name="ManageProducts_Page">
+			
+			<Element name="AdminUsername" type="TextBox" locator="xpath"
+			selector="//label[contains(@class,'control-label') and text()='Username']/following-sibling::input" />
+			
+			<Element name="AdminPassword" type="TextBox" locator="xpath"
+			selector="//label[contains(@class,'control-label') and text()='Password']/following-sibling::input" />
+			
+			<Element name="WalmartDropdown" type="Link" locator="xpath"
+			selector="(//a[@class='dropdown-toggle']/child::span[contains(text(),'Walmart')])[1]" />
+			
+			<Element name="WalmartShopDetails" type="Link" locator="xpath"
+			selector="//a[@href='/walmartshopdetails/index']" />
+			
+			<Element name="ShopNameTextBox" type="TextBox" locator="xpath"
+			selector="//input[contains(@name,'shop_name')]" />
+			
+			<Element name="LoginAsButton" type="Link" locator="xpath"
+			selector="//a[@title='Login As']" />
+			
+			<Element name="Product_ManageProduct" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Manage Products')]" />
+			
+			<Element name="FirstCheckbox" type="Link" locator="xpath"
+			selector="(//span[@class='Polaris-Checkbox'])[1]" />
+			
+			<Element name="Pagination" type="Link" locator="xpath"
+			selector="//li[@class='next']/a[contains(text(),'»')]" />
+			
+			<Element name="SelectAllItems" type="Link" locator="xpath"
+			selector="//div[@class='action-summary']/following::a[contains(@class,'select_all_link')]" />
+			
+			<Element name="Okbutton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'Polaris-Button Polaris-Button--primary')]/following::span[contains(@class,'Polaris-Button__Content')]/child::span[contains(text(),'Ok')]" />
+			
+			<Element name="BulkActionDropdown" type="Link" locator="xpath"
+			selector="//div[@class='actions-bulk']/following::select[@id='product_select']"/>
+			
+			<Element name="SyncwithShopifyinDropdown" type="Link" locator="xpath"
+			selector="//div[@class='actions-bulk']/following::select[@id='product_select']/child::option[contains(text(),'Sync With Shopify')]"/>
+			
+			<Element name="ActionButton" type="Link" locator="xpath"
+			selector="//div[@class='custom_polaris_bulk_action']/div/child::div[@class='actions-bulk']/child::button"/>
+			
+			<Element name="SyncButton" type="Link" locator="xpath"
+			selector="//button[@id='sync-yes']/span"/>
+			
+			<Element name="UpdateInventory" type="Link" locator="xpath"
+			selector="//div[@class='actions-bulk']/following::select[@id='product_select']/child::option[contains(text(),'Update Inventory')]"/>
+			
+			<Element name="ErrorMessage" type="Link" locator="xpath"
+			selector="//div[@class='Polaris-Banner__Heading']/span[@id='errorHeading']"/>
+			
+			<Element name="BacktoPreviousButton" type="Link" locator="xpath"
+			selector="//span[@class='Polaris-Button__Content']/child::span[contains(text(),'Back To Previous')]"/>
+			
+			
+			
+			</Page>
+			
+			
+			<Page name="WebHook_Page">
+			
+					
+			
+			<Element name="ShopifyLogin" type="TextBox" locator="xpath"
+			selector="//label[contains(@class,'next-label') and text()='Email']/following-sibling::input" />	
+			
+			<Element name="NextButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'ui-button') and text()='Next']" />
+			
+			<Element name="ShopifyPassword" type="TextBox" locator="xpath"
+			selector="//div[contains(@class,'next-field__connected-wrapper ui-password')]/child::input" />
+			
+			<Element name="LoginButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'ui-button') and text()='Log in']" />
+						
+			<Element name="InstallAppButton" type="Link" locator="xpath"
+			selector="//*[contains(@class,'shopify-button') and text()='Install App']" />
+			
+			<Element name="AddAppButton" type="Link" locator="xpath"
+			selector="//*[@class='ui-app-store-hero__cta']/child::a[contains(text(),'Add app')]" />
+			
+			<Element name="ShopifyUrlTextbox" type="Link" locator="xpath"
+			selector="//*[contains(@class,'marketing-input-wrapper')]/child::span[contains(text(),'Your store’s URL')]/following-sibling::input" />
+			
+			
+			<Element name="AppsOptionInShopify" type="Link" locator="xpath"
+			selector="//*[contains(@class,'_2UYjg') and text()='Apps']" />
+			
+			<Element name="WalmartIntegration" type="Link" locator="xpath"
+			selector="//*[contains(@class,'_2eUsl') and text()='Walmart Integration']" />
+			
+			
+			<Element name="Products_Shopify" type="Link" locator="xpath"
+			selector="//*[contains(@class,'_2UYjg') and text()='Products']" />
+			
+			<Element name="AddProductButton" type="Link" locator="xpath"
+			selector="//*[contains(@class,'_1GgwJ') and text()='Add product']" />
+			
+			<Element name="TitleTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='title']" />
+			
+			<Element name="DescriptionTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@id,'tinymce') and @data-id='product-description']" />
+			
+			<Element name="ProductTypeTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@placeholder,'e.g. Shirts')]" />	
+			
+			<Element name="VendorTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@placeholder,'e.g. Nike')]" />	
+			
+			<Element name="PriceTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='price']" />
+			
+			<Element name="CostPerItemTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='unitCost']" />
+			
+			<Element name="QuantityAvailableTextBox" type="TextBox" locator="xpath"
+			selector="//input[@id='AdjustQuantityPopoverTextFieldActivator']" />
+			
+			<Element name="WeightTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='weight']" />
+			
+			<Element name="SaveButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'_1GgwJ') and text()='Save'])[1]" />
+			
+			<Element name="NotMappedProductsWIA" type="Link" locator="xpath"
+			selector="//*[contains(@class,'tab-view-listing')]/child::a[contains(text(),'Not Mapped Products')]" />
+			
+			<Element name="FilterProductsTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@placeholder,'Filter products')]" />
+			
+			<Element name="AfterFilterProduct" type="Link" locator="xpath"
+			selector="//*[contains(@testid,'Item-Content')]" />
+			
+			
+			<Element name="NumOfVariantsAfterClickEdit" type="Link" locator="xpath"
+			selector="//ul[@id='variantsList']/child::li" />
+			
+			
+			<Element name="EditButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'_1GgwJ') and text()='Edit'])[1]" />
+			
+			
+			<Element name="SizeTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='selectedOptions.0.value']" />
+			
+			
+			<Element name="ColorTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='selectedOptions.1.value']" />
+			
+			<Element name="SKUTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='sku']" />
+			
+			
+			<Element name="BarCodeTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='barcode']" />
+			
+			<Element name="VariantsCheckbox" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_3tI7Z') and text()='This product has multiple options, like different sizes or colors']" />
+			
+			<Element name="FirstVariantTextBox" type="TextBox" locator="xpath"
+			selector="//input[@id='PolarisTextField16']" />
+			
+			<Element name="FirstVariantValueTextBox" type="TextBox" locator="xpath"
+			selector="//input[@placeholder='Separate options with a comma']" />
+			
+			<Element name="AddAnotherOptionforVariant" type="Link" locator="xpath"
+			selector="//button[@class='_1wLbD']/span/child::span[contains(text(),'Add another option')]" />
+			
+			<Element name="TrackQuantityCheckbox" type="Link" locator="xpath"
+			selector="//label[@for='InventoryTrackingTracked']" />
+			
+			<Element name="Settings" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Settings']" />
+			
+			<Element name="ProductConfigWalmart" type="Link" locator="xpath"
+			selector="//span[contains(text(),'Product Configuration')]" />
+			
+			<Element name="SelectProductSync" type="Link" locator="xpath"
+			selector="//select[@id='Select2']" />
+			
+			<Element name="DisableProductSync" type="Link" locator="xpath"
+			selector="//select[@id='Select2']/option[contains(text(),'Disable')]" />
+			
+			<Element name="EnableProductSync" type="Link" locator="xpath"
+			selector="//select[@id='Select2']/option[contains(text(),'Enable')]" />
+			
+			<Element name="SaveButtonWalmartSync" type="Link" locator="xpath"
+			selector="(//*[@id='product_sync_save_button'])[2]" />
+			
+			<Element name="AddImageButton" type="Link" locator="xpath"
+			selector="//div[contains(@class,'_2qik1') and text()='Add image']" />
+			
+			<Element name="DeleteVariantButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_1GgwJ') and text()='Delete variant']" />
+			
+			<Element name="DeleteVariantDialogButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'_1GgwJ') and text()='Delete variant'])[2]" />
+			
+			<Element name="DeleteProductButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_1GgwJ') and text()='Delete product']" />
+			
+			<Element name="DeleteProductDialogButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'_1GgwJ') and text()='Delete product'])[2]" />
+			
+			
+			
+			
+			
+			</Page>
+			
+			
+			
+			</Application>
