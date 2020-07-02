@@ -83,8 +83,9 @@ public void launchWalmartUrlWithProdId(String prod_id){
 	webP.launchWalmartUrlWithProdId(prod_id);
 }
 
-public void verifyingUpdate(String updatedtextshop, String updatedtextwal) {
-	webP.verifyingUpdate(updatedtextshop, updatedtextwal);
+public Boolean verifyingUpdate(String updatedtextshop, String updatedtextwal) {
+Boolean bool=webP.verifyingUpdate(updatedtextshop, updatedtextwal);
+return bool;
 
 }
 
@@ -138,6 +139,19 @@ public void deletingVariant() {
 public String deletingProduct(String product) throws InterruptedException {
 String prod_id=webP.deletingProduct(product);
 return prod_id;
+}
+
+public String convertingToPoundandRoundingOffto5DecPlace(String weightinKg) {
+	String weightinPound=webP.convertingToPoundandRoundingOffto5DecPlace(weightinKg);
+	return weightinPound;
+}
+
+public void closeAllOpenedTabs() {
+	webP.closeAllOpenedTabs();
+}
+
+public void selectingImage(String product) throws InterruptedException {
+	webP.selectingImage(product);
 }
 
 }

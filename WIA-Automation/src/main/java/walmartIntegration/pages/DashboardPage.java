@@ -245,16 +245,13 @@ public class DashboardPage extends commonPage {
 	
 	public void serverLogin() {
 		try{
-			String userName="cedcoss";
-			String password="cedcoss007";
-		       Screen screen=new Screen();
-		       Pattern  image1=new Pattern("/home/cedcoss/Pictures/Username.png");
-		       Pattern  image2=new Pattern("/home/cedcoss/Pictures/Password.png");
-		       Pattern  image3=new Pattern("/home/cedcoss/Pictures/SignIn.png");
+			String filepath="cedcoss";
+			   Screen screen=new Screen();
+		       Pattern  image1=new Pattern("Give image path here of filename textbox");
+		       Pattern  image3=new Pattern("Give image path of submit button");
 
 		    screen.wait(image1,10);
-		    screen.type(image1,userName);
-		    screen.type(image2,password);
+		    screen.type(image1,filepath);
 		    screen.click(image3);
 		       }
 		       catch(Exception e){

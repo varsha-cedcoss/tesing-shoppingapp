@@ -374,6 +374,9 @@
 			<Element name="DeleteProductDialogButton" type="Link" locator="xpath"
 			selector="(//span[contains(@class,'_1GgwJ') and text()='Delete product'])[2]" />
 			
+			<Element name="AddFileButton" type="Link" locator="xpath"
+			selector="//div[contains(@class,'_2qik1') and text()='Add file']" />
+			
 			
 			
 			

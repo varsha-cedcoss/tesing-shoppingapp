@@ -1,5 +1,7 @@
 package walmartIntegration.pages;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
@@ -9,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -69,6 +73,7 @@ public class WebHook_Page extends commonPage {
 	private Link DeleteVariantDialogButton;
 	private Link DeleteProductButton;
 	private Link DeleteProductDialogButton;
+	private Link AddFileButton;
 	
 	public WebHook_Page()  {
 		super(WebHook_Page.class.getSimpleName());
@@ -162,6 +167,8 @@ public class WebHook_Page extends commonPage {
 				"WebHook_Page", "DeleteProductButton");
 		DeleteProductDialogButton= new Link(ReadXML.getElementLocator("WebHook_Page", "DeleteProductDialogButton"),
 				"WebHook_Page", "DeleteProductDialogButton");
+		AddFileButton= new Link(ReadXML.getElementLocator("WebHook_Page", "AddFileButton"),
+				"WebHook_Page", "AddFileButton");
 		
 		
 		
@@ -369,11 +376,18 @@ public class WebHook_Page extends commonPage {
 		DriverManager.getDriver().get(url);
 	}
 
-	public void verifyingUpdate(String updatedtextshop, String updatedtextwal) {
+	public Boolean verifyingUpdate(String updatedtextshop, String updatedtextwal) {
+		try {
+			Reporter.log("The updated text from shopify is :  "+updatedtextshop);
+			Reporter.log("The updated text from walmart is :  "+updatedtextwal);
+		Assert.assertEquals(updatedtextwal, updatedtextshop);
+		return true;
+		}
+		catch(AssertionError e) {
+			Reporter.log("The product is not updated. Try again");
+			return false;
+		}
 		
-		Reporter.log("The updated text from shopify is :  "+updatedtextshop);
-		Reporter.log("The updated text from walmart is :  "+updatedtextwal);
-	Assert.assertEquals(updatedtextwal, updatedtextshop);
 
 	}
 	
@@ -518,5 +532,47 @@ public class WebHook_Page extends commonPage {
 		Thread.sleep(3000);
 		return prod_id;
 	}
+	
+	public void closeAllOpenedTabs() {
+		for(String handle : DriverManager.getDriver().getWindowHandles()) {
+	      
+			DriverManager.getDriver().switchTo().window(handle);
+			DriverManager.getDriver().close();
+	        }
+	    }
+	
+	public String convertingToPoundandRoundingOffto5DecPlace(String weightinKg) {
+		double weight=Double.parseDouble(weightinKg);
+	double	weightinPound=weight*2.2046226218;
+	
+		 DecimalFormat df = new DecimalFormat("#.#####");
+	        df.setRoundingMode(RoundingMode.CEILING);
+	         String WeightPound=df.format(weightinPound);
+	        return WeightPound;
+	}
+	
+	public void selectingImage(String product) throws InterruptedException {
+		Products_Shopify.click();
+		FilterProductsTextBox.sendKeys(product);
+		Thread.sleep(3000);
+		AfterFilterProduct.click();
+		AddFileButton.click();
+		
+	try{
+		String filepath="";
+		   Screen screen=new Screen();
+	       Pattern  image1=new Pattern("Give image path here of filename textbox");
+	       Pattern  image3=new Pattern("Give image path of submit button");
+
+	    screen.wait(image1,10);
+	    screen.type(image1,filepath);
+	    screen.click(image3);
+	       }
+	       catch(Exception e){
+	           System.out.println("There is no alert");
+	       }
+	}
+	
+	
 	
 	}

@@ -84,7 +84,8 @@ public abstract class commonTest {
 
     @AfterMethod
     public void setScreenCaptureTrue() {
-        DriverManager.setCaptureScreenShot(true);     
+        DriverManager.setCaptureScreenShot(true);   
+        DriverManager.getDriver().quit();
         
     }
 
@@ -103,17 +104,21 @@ public abstract class commonTest {
 //    	
     	if(result.getStatus() == ITestResult.SUCCESS){
     		logger.log(LogStatus.PASS, "Test Case Passed: "+result.getName());	
+    		
     	}
     	else if(result.getStatus() == ITestResult.FAILURE){
     		logger.log(LogStatus.FAIL, "Test Case Failed: "+result.getName());
     		logger.log(LogStatus.FAIL, "Test Case Failed: "+result.getThrowable());    		
     		logger.log(LogStatus.FAIL, "Snapshot: "+logger.addScreenCapture(CommonUtils.createScreenshot(result)));
+    		
     	}
     	else if(result.getStatus() == ITestResult.SKIP){
     		logger.log(LogStatus.SKIP, "Test Case Skipped: "+result.getName());
+    		
     	}
     	extent.endTest(logger);
     	extent.flush();
+    	
     }
     
     @AfterSuite
