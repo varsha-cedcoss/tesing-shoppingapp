@@ -1,5 +1,10 @@
 package walmartIntegration.module;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.JsonArray;
+
 import Framework.Custom.DriverManager;
 import walmartIntegration.pages.WebHook_Page;
 
@@ -26,12 +31,18 @@ public String fetchingfromJsonObject(String js,String obj, String objAttr) {
 	String val=webP.fetchingfromJsonObject(js,obj, objAttr);
 	return val;
 }
+
+public JsonArray fetchingJsonArray(String js, String obj, String objAttr) {
+	JsonArray arr=webP.fetchingJsonArray(js, obj, objAttr);
+	return arr;
+}
+
 public String fetchingfromJsonArray(String js, String obj, String objAttr, String AttrVal) {
 	String val=webP.fetchingfromJsonArray(js, obj, objAttr, AttrVal);
 	return val;
 }
-public void creatingNewProduct() {
-	webP.creatingNewProduct();
+public void creatingNewProduct(String title,String description,String prodType,String vendor,String price,String costperitem,String inventory,String weight) {
+	webP.creatingNewProduct(title,description,prodType,vendor,price,costperitem,inventory,weight);
 }
 public void updatingTitle(String product, String updateText) throws InterruptedException {
 	webP.updatingTitle(product,updateText);
@@ -154,4 +165,74 @@ public void selectingImage(String product) throws InterruptedException {
 	webP.selectingImage(product);
 }
 
+public void disablingAutoProductCreate() throws InterruptedException {
+	webP.disablingAutoProductCreate();
+}
+
+public void enablingAutoProductCreate() throws InterruptedException {
+	webP.enablingAutoProductCreate();
+}
+public void updatingInventoryForVariants(String updatedText) {
+	webP.updatingInventoryForVariants(updatedText);
+}
+
+public void selectingForBulkUpdate() throws InterruptedException {
+	webP.selectingForBulkUpdate();
+}
+
+//give field name as in shopify app
+	public void selectingAParticularFieldforBulkEditing(String fieldName) throws InterruptedException {
+		webP.selectingAParticularFieldforBulkEditing(fieldName);
+	}
+	
+	//if in for loop, take num= i+1
+	public void selectingAParticularTextBoxofInventory(String num) {
+			webP.selectingAParticularTextBoxofInventory(num);
+					}
+		
+		//if in for loop, take num= i
+	public void updatingBulkInventory(String num,String updatedQty) {
+			webP.updatingBulkInventory(num, updatedQty);
+		}
+	public void clickingSaveButtonforBulk() throws InterruptedException {
+		webP.clickingSaveButtonforBulk();
+	}
+	public void selectingProduct(String product) throws InterruptedException{
+		webP.selectingProduct(product);
+	}
+	
+	public void deleteAllProducts() throws InterruptedException {
+		webP.deleteAllProducts();
+	}
+	
+	public void updatingTags(String updatedText) throws InterruptedException {
+		webP.updatingTags(updatedText);
+	}
+	
+	public void clickingCheckboxforParticularVariantInOrder(String varid) {
+		webP.clickingCheckboxforParticularVariantInOrder(varid);
+	}
+	
+	public void creatingOrder(String firstletterofProduct,String restOfLetterOfProduct,String varid) throws InterruptedException {
+		webP.creatingOrder(firstletterofProduct,restOfLetterOfProduct, varid);
+	}
+	
+	public void addingVariantforProductHavingVariant(String sizeVal,String colorVal,String quantity) throws InterruptedException {
+		webP.addingVariantforProductHavingVariant(sizeVal, colorVal, quantity);
+	}
+	
+	public ArrayList duplicatingSkuOfOneProductToAnother() {
+		ArrayList<String> varProdId=webP.duplicatingSkuOfOneProductToAnother();
+		return varProdId;
+			}
+	public void orderToBeRefunded(String OrderId) throws InterruptedException {
+		webP.orderToBeRefunded(OrderId);
+	}
+	
+	public String checkingIfImportLimitReached() throws InterruptedException{
+		String s=webP.checkingIfImportLimitReached();
+		return s;
+	}
+	
+	
 }

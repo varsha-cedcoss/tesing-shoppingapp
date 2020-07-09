@@ -3,6 +3,8 @@ package walmartIntegration.pages;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -74,6 +76,35 @@ public class WebHook_Page extends commonPage {
 	private Link DeleteProductButton;
 	private Link DeleteProductDialogButton;
 	private Link AddFileButton;
+	private Link ImportLimitExceededLabel;
+	private Link SelectImportOptions;
+	private Link ImportOptions_AllProducts;
+	private Link ImportOptions_PublishedProducts;
+	private Link ImportOptions_FilterProducts;
+	private Link ConfirmImportButton;
+	private Link ImportLimitValue;
+	private Link AutoProductCreateDropdown;
+	private Link AutoProductCreateDropdown_No;
+	private Link AutoProductCreateDropdown_Yes;
+	private Link SaveButtonAutoProductCreate;
+	private Link AllProductsCheckBox;
+	private Link EditProductButton;
+	private Link AddFieldsButton;
+	private Link MoreActionsButton;
+	private Link DeleteProductsOption;
+	private Link DeleteAllProductsButtonOnPopup;
+	private TextBox TagsTextBox;
+	private Link Orders_Shopify;
+	private Link CreateOrderButton;
+	private TextBox SearchProductsTextBoxInOrderPage;
+	private TextBox SearchProductsTextBoxInOrderPagePopup;
+	private Link AddtoOrderButton;
+	private Link MarkAsPaidButton;
+	private Link CreateOrderButtonAfterPopup;
+	private Link AddVariantButtonforProductHavingVariant;
+	private Link RefundLink;
+	private Link IncreasingProductCount;
+	private Link RefundButton;
 	
 	public WebHook_Page()  {
 		super(WebHook_Page.class.getSimpleName());
@@ -169,9 +200,64 @@ public class WebHook_Page extends commonPage {
 				"WebHook_Page", "DeleteProductDialogButton");
 		AddFileButton= new Link(ReadXML.getElementLocator("WebHook_Page", "AddFileButton"),
 				"WebHook_Page", "AddFileButton");
-		
-		
-		
+		ImportLimitExceededLabel= new Link(ReadXML.getElementLocator("WebHook_Page", "ImportLimitExceededLabel"),
+				"WebHook_Page", "ImportLimitExceededLabel");
+		SelectImportOptions= new Link(ReadXML.getElementLocator("WebHook_Page", "SelectImportOptions"),
+				"WebHook_Page", "SelectImportOptions");
+		ImportOptions_AllProducts= new Link(ReadXML.getElementLocator("WebHook_Page", "ImportOptions_AllProducts"),
+				"WebHook_Page", "ImportOptions_AllProducts");
+		ImportOptions_PublishedProducts= new Link(ReadXML.getElementLocator("WebHook_Page", "ImportOptions_PublishedProducts"),
+				"WebHook_Page", "ImportOptions_PublishedProducts");
+		ImportOptions_FilterProducts= new Link(ReadXML.getElementLocator("WebHook_Page", "ImportOptions_FilterProducts"),
+				"WebHook_Page", "ImportOptions_FilterProducts");
+		ConfirmImportButton= new Link(ReadXML.getElementLocator("WebHook_Page", "ConfirmImportButton"),
+				"WebHook_Page", "ConfirmImportButton");
+		ImportLimitValue= new Link(ReadXML.getElementLocator("WebHook_Page", "ImportLimitValue"),
+				"WebHook_Page", "ImportLimitValue");
+		AutoProductCreateDropdown= new Link(ReadXML.getElementLocator("WebHook_Page", "AutoProductCreateDropdown"),
+				"WebHook_Page", "AutoProductCreateDropdown");
+		AutoProductCreateDropdown_No= new Link(ReadXML.getElementLocator("WebHook_Page", "AutoProductCreateDropdown_No"),
+				"WebHook_Page", "AutoProductCreateDropdown_No");
+		AutoProductCreateDropdown_Yes= new Link(ReadXML.getElementLocator("WebHook_Page", "AutoProductCreateDropdown_Yes"),
+				"WebHook_Page", "AutoProductCreateDropdown_Yes");
+		SaveButtonAutoProductCreate= new Link(ReadXML.getElementLocator("WebHook_Page", "SaveButtonAutoProductCreate"),
+				"WebHook_Page", "SaveButtonAutoProductCreate");
+		AllProductsCheckBox= new Link(ReadXML.getElementLocator("WebHook_Page", "AllProductsCheckBox"),
+				"WebHook_Page", "AllProductsCheckBox");
+		EditProductButton= new Link(ReadXML.getElementLocator("WebHook_Page", "EditProductButton"),
+				"WebHook_Page", "EditProductButton");
+		AddFieldsButton= new Link(ReadXML.getElementLocator("WebHook_Page", "AddFieldsButton"),
+				"WebHook_Page", "AddFieldsButton");
+		MoreActionsButton= new Link(ReadXML.getElementLocator("WebHook_Page", "MoreActionsButton"),
+				"WebHook_Page", "MoreActionsButton");
+		DeleteProductsOption= new Link(ReadXML.getElementLocator("WebHook_Page", "DeleteProductsOption"),
+				"WebHook_Page", "DeleteProductsOption");
+		DeleteAllProductsButtonOnPopup= new Link(ReadXML.getElementLocator("WebHook_Page", "DeleteAllProductsButtonOnPopup"),
+				"WebHook_Page", "DeleteAllProductsButtonOnPopup");
+		TagsTextBox= new TextBox(ReadXML.getElementLocator("WebHook_Page", "TagsTextBox"),
+				"WebHook_Page", "TagsTextBox");
+		Orders_Shopify= new Link(ReadXML.getElementLocator("WebHook_Page", "Orders_Shopify"),
+				"WebHook_Page", "Orders_Shopify");
+		CreateOrderButton= new Link(ReadXML.getElementLocator("WebHook_Page", "CreateOrderButton"),
+				"WebHook_Page", "CreateOrderButton");
+		SearchProductsTextBoxInOrderPage= new TextBox(ReadXML.getElementLocator("WebHook_Page", "SearchProductsTextBoxInOrderPage"),
+				"WebHook_Page", "SearchProductsTextBoxInOrderPage");
+		AddtoOrderButton= new Link(ReadXML.getElementLocator("WebHook_Page", "AddtoOrderButton"),
+				"WebHook_Page", "AddtoOrderButton");
+		MarkAsPaidButton= new Link(ReadXML.getElementLocator("WebHook_Page", "MarkAsPaidButton"),
+				"WebHook_Page", "MarkAsPaidButton");
+		CreateOrderButtonAfterPopup= new Link(ReadXML.getElementLocator("WebHook_Page", "CreateOrderButtonAfterPopup"),
+				"WebHook_Page", "CreateOrderButtonAfterPopup");
+		SearchProductsTextBoxInOrderPagePopup= new TextBox(ReadXML.getElementLocator("WebHook_Page", "SearchProductsTextBoxInOrderPagePopup"),
+				"WebHook_Page", "SearchProductsTextBoxInOrderPagePopup");
+		AddVariantButtonforProductHavingVariant= new Link(ReadXML.getElementLocator("WebHook_Page", "AddVariantButtonforProductHavingVariant"),
+				"WebHook_Page", "AddVariantButtonforProductHavingVariant");
+		RefundLink= new Link(ReadXML.getElementLocator("WebHook_Page", "RefundLink"),
+				"WebHook_Page", "RefundLink");
+		IncreasingProductCount= new Link(ReadXML.getElementLocator("WebHook_Page", "IncreasingProductCount"),
+				"WebHook_Page", "IncreasingProductCount");
+		RefundButton= new Link(ReadXML.getElementLocator("WebHook_Page", "RefundButton"),
+				"WebHook_Page", "RefundButton");
 		
 	}
 	
@@ -202,6 +288,7 @@ public class WebHook_Page extends commonPage {
 	
 	public String extractingJsonDataAsStringfromPage() {
 		String js=DriverManager.getDriver().findElement(By.xpath("//body")).getText();
+		Reporter.log(""+js);
 		return js;
 	}
 	
@@ -210,18 +297,19 @@ public class WebHook_Page extends commonPage {
 		DescriptionTextBox.sendKeys(text);
 		DriverManager.getDriver().switchTo().defaultContent();
 	}
-	public void creatingNewProduct() {
+	public void creatingNewProduct(String title,String description,String prodType,String vendor,String price,String costperitem,String inventory,String weight) {
 		Products_Shopify.click();
 		AddProductButton.click();
-		TitleTextBox.sendKeys("Shorts");
-		workonDescription("Shorts for men");
-		ProductTypeTextBox.sendKeys("Pants");
-		VendorTextBox.sendKeys("automationtesting");
-		PriceTextBox.sendKeys("1000");
-		CostPerItemTextBox.sendKeys("1000");
-		DeletingfromTextBoxandEnteringAnotherText(QuantityAvailableTextBox,"10");
-		DeletingfromTextBoxandEnteringAnotherText(WeightTextBox,"0.1");
+		TitleTextBox.sendKeys(title);
+		workonDescription(description);
+		ProductTypeTextBox.sendKeys(prodType);
+		VendorTextBox.sendKeys(vendor);
+		PriceTextBox.sendKeys(price);
+		CostPerItemTextBox.sendKeys(costperitem);
+		DeletingfromTextBoxandEnteringAnotherText(QuantityAvailableTextBox,inventory);
+		DeletingfromTextBoxandEnteringAnotherText(WeightTextBox,weight);
 		SaveButton.click();
+		
 		
 	}
 	public String fetchingfromJsonObject(String js,String obj, String objAttr) {
@@ -231,6 +319,12 @@ public class WebHook_Page extends commonPage {
 		Reporter.log("The  " +objAttr+ "  of the product is:   "+objectAttr);
 				return objectAttr;
 		}
+	public JsonArray fetchingJsonArray(String js, String obj, String objAttr) {
+		JsonObject jsonObject = new JsonParser().parse(js).getAsJsonObject();
+		JsonArray arr = jsonObject.getAsJsonObject(obj).getAsJsonArray(objAttr);
+		Reporter.log("From Fetching Json Array Function    "+arr);
+		return arr;
+	}
 	
 	public String fetchingfromJsonArray(String js, String obj, String objAttr, String AttrVal) {
 		JsonObject jsonObject = new JsonParser().parse(js).getAsJsonObject();
@@ -374,6 +468,7 @@ public class WebHook_Page extends commonPage {
 		String url="https://apps.cedcommerce.com/integration/walmart/walmartcustomwork/get-saved-product?id=";
 		url=url.concat(prod_id);
 		DriverManager.getDriver().get(url);
+		
 	}
 
 	public Boolean verifyingUpdate(String updatedtextshop, String updatedtextwal) {
@@ -557,8 +652,7 @@ public class WebHook_Page extends commonPage {
 		Thread.sleep(3000);
 		AfterFilterProduct.click();
 		AddFileButton.click();
-		
-	try{
+			try{
 		String filepath="";
 		   Screen screen=new Screen();
 	       Pattern  image1=new Pattern("Give image path here of filename textbox");
@@ -572,6 +666,219 @@ public class WebHook_Page extends commonPage {
 	           System.out.println("There is no alert");
 	       }
 	}
+	
+	public void disablingAutoProductCreate() throws InterruptedException {
+		Settings.click();
+		ProductConfigWalmart.click();
+		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,200)");
+		AutoProductCreateDropdown.click();
+		AutoProductCreateDropdown_No.click();
+		SaveButtonAutoProductCreate.click();
+		Thread.sleep(3000);
+	}
+	
+	public void enablingAutoProductCreate() throws InterruptedException {
+		Settings.click();
+		ProductConfigWalmart.click();
+		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,200)");
+		AutoProductCreateDropdown.click();
+		AutoProductCreateDropdown_Yes.click();
+		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,80)");
+		SaveButtonAutoProductCreate.click();
+		Thread.sleep(3000);
+	}
+	
+	public void updatingInventoryForVariants(String updatedText) {
+		DeletingfromTextBoxandEnteringAnotherText(QuantityAvailableTextBox,updatedText);
+		SaveButton.click();
+		
+	}
+	
+	public void selectingForBulkUpdate() throws InterruptedException {
+		Products_Shopify.click();
+		Thread.sleep(3000);
+		AllProductsCheckBox.click();
+		Thread.sleep(3000);
+		EditProductButton.click();
+		Thread.sleep(3000);
+		AddFieldsButton.click();
+		Thread.sleep(3000);
+		
+	}
+	
+	//give field name as in shopify app
+	public void selectingAParticularFieldforBulkEditing(String fieldName) throws InterruptedException {
+		String field="//span[contains(@class,'next-token__label') and text()='";
+		field=field.concat(fieldName);
+		field=field.concat("']");
+		DriverManager.getDriver().findElement(By.xpath(field)).click();
+		Thread.sleep(5000);
+	}
+	
+	
+	//if in for loop, take num= i+1
+	public void selectingAParticularTextBoxofInventory(String num) {
+	String inventoryTextbox="(//input[@class='next-input next-input--number quantity-field no-spinbox'])[";
+	inventoryTextbox=inventoryTextbox.concat(num);
+	inventoryTextbox=inventoryTextbox.concat("]");
+	DriverManager.getDriver().findElement(By.xpath(inventoryTextbox)).click();
+	}
+	
+	//if in for loop, take num= i
+	public void updatingBulkInventory(String num,String updatedQty) {
+		String invUpdate="(//input[@name='product[variants_attributes][";
+		invUpdate=invUpdate.concat(num);
+		invUpdate=invUpdate.concat("][inventory_quantity_adjustment]'])[1]");
+WebElement Inventory=	DriverManager.getDriver().findElement(By.xpath(invUpdate));
+Inventory.click();
+Inventory.sendKeys(Keys.END);
+Inventory.sendKeys(Keys.LEFT_SHIFT,Keys.HOME,Keys.CLEAR);
+Inventory.sendKeys(updatedQty);
+Inventory.sendKeys(Keys.ESCAPE);
+
+	
+		
+	}
+	
+	public void clickingSaveButtonforBulk() throws InterruptedException {
+		SaveButton.click();
+		Thread.sleep(3000);
+			}
+	
+	public void selectingProduct(String product) throws InterruptedException{
+		Products_Shopify.click();
+		FilterProductsTextBox.sendKeys(product);
+		Thread.sleep(3000);
+		AfterFilterProduct.click();
+	}
+	
+	public void deleteAllProducts() throws InterruptedException {
+		Products_Shopify.click();
+		Thread.sleep(3000);
+		AllProductsCheckBox.click();
+		Thread.sleep(3000);
+		MoreActionsButton.click();
+		Thread.sleep(3000);
+		DeleteProductsOption.click();
+		Thread.sleep(3000);
+	//	DeleteAllProductsButtonOnPopup.click();
+			}
+	
+	public void updatingTags(String updatedText) throws InterruptedException {
+		TagsTextBox.sendKeys(updatedText);
+		TagsTextBox.sendKeys(Keys.ENTER);
+		Thread.sleep(3000);
+		SaveButton.click();
+	}
+	
+	public void clickingCheckboxforParticularVariantInOrder(String varid) {
+		//DriverManager.getDriver().switchTo().defaultContent();
+	String varCheck="//input[@id='variant_checkbox_";
+	varCheck=varCheck.concat(varid);
+	varCheck=varCheck.concat("']");
+	DriverManager.getDriver().findElement(By.xpath(varCheck)).click();
+	}
+	
+	public void creatingOrder(String firstletterofProduct,String restOfLetterOfProduct,String varid) throws InterruptedException {
+		Orders_Shopify.click();
+		Thread.sleep(3000);
+		CreateOrderButton.click();
+		Thread.sleep(3000);
+		SearchProductsTextBoxInOrderPage.sendKeys(firstletterofProduct);
+		Thread.sleep(3000);
+		SearchProductsTextBoxInOrderPagePopup.sendKeys(restOfLetterOfProduct);
+		Thread.sleep(3000);
+		clickingCheckboxforParticularVariantInOrder(varid);
+		Thread.sleep(3000);
+		AddtoOrderButton.click();
+		Thread.sleep(7000);
+		MarkAsPaidButton.click();
+		Thread.sleep(7000);
+		CreateOrderButtonAfterPopup.click();
+		Thread.sleep(7000);
+	}
+	
+	public void addingVariantforProductHavingVariant(String sizeVal,String colorVal,String quantity) throws InterruptedException {
+		AddVariantButtonforProductHavingVariant.click();
+		Thread.sleep(3000);
+		DeletingfromTextBoxandEnteringAnotherText(SizeTextBox,sizeVal);
+		DeletingfromTextBoxandEnteringAnotherText(ColorTextBox,colorVal);
+		DeletingfromTextBoxandEnteringAnotherText(QuantityAvailableTextBox,quantity);
+		SaveButton.click();
+		Thread.sleep(5000);
+		
+	}
+	
+	public ArrayList duplicatingSkuOfOneProductToAnother() {
+		ArrayList<String> varProdId=new ArrayList<String>();
+	
+	String varid=extractingVariantIdfromUrl();
+	extractingUrlAddingDotJsonAndLaunching();
+	String json=extractingJsonDataAsStringfromPage();
+	String prod_id=	fetchingfromJsonObject(json, "variant", "product_id");
+	String sku=fetchingfromJsonObject(json,"variant","sku");
+	Reporter.log("Sku is "+sku);
+	DriverManager.getDriver().navigate().back();
+	selectingVariantProduct("36 / Grey");
+	DeletingfromTextBoxandEnteringAnotherText(SKUTextBox,sku);
+	SaveButton.click();
+	String varid2=extractingVariantIdfromUrl();
+	extractingUrlAddingDotJsonAndLaunching();
+	String json2=extractingJsonDataAsStringfromPage();
+	DriverManager.getDriver().navigate().back();
+	varProdId.add(0, prod_id);
+	varProdId.add(1, varid2);
+	Reporter.log("Product and Variant id are  "+varProdId);
+		return varProdId;
+	}
+	
+	public void orderToBeRefunded(String OrderId) throws InterruptedException {
+		Orders_Shopify.click();
+		Thread.sleep(3000);
+		String orderId="//span[contains(text(),'";
+		orderId=orderId.concat(OrderId);
+		orderId=orderId.concat("')]");
+		DriverManager.getDriver().findElement(By.xpath(orderId)).click();
+		Thread.sleep(3000);
+		RefundLink.click();
+		Thread.sleep(3000);
+		IncreasingProductCount.click();
+		Thread.sleep(3000);
+		RefundButton.click();
+		Thread.sleep(3000);
+	}
+	
+	public String checkingIfImportLimitReached() throws InterruptedException{
+	String val=ImportLimitValue.getText().replace("used", "");
+	val=val.replace(" ", "");
+	String[] limit=val.split("/");
+	String s=null;
+	int actualLimit = Integer.valueOf(limit[1]);
+	int usedofLimit = Integer.valueOf(limit[0]);
+		Reporter.log("Import Limit Values are:     "+Arrays.toString(limit));
+		Reporter.log("Actual Limit Value is:     "+actualLimit);
+		Reporter.log("Used Limit is:     "+usedofLimit);
+		if(usedofLimit>actualLimit) {
+			int limitExceeded=usedofLimit-actualLimit;
+			 s="LimitExceeded";
+			Reporter.log("Import Limit exceeded by:  "+limitExceeded);
+			return s;
+					}
+		else if(usedofLimit<actualLimit) {
+			int limitNotExceeded=actualLimit-usedofLimit;
+			 s="LimitNotExceeded";
+			Reporter.log("Import Limit not exceeded by:  "+limitNotExceeded);
+			return s;
+		}
+		else if(usedofLimit==actualLimit) {
+			Reporter.log("Import Limit Reached. In This case you have to delete 1 product and add two product");
+			 s="LimitReached";
+			return s;
+		}
+		return s;
+		}
+	
+	
 	
 	
 	

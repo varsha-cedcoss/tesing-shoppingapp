@@ -341,23 +341,7 @@
 			<Element name="TrackQuantityCheckbox" type="Link" locator="xpath"
 			selector="//label[@for='InventoryTrackingTracked']" />
 			
-			<Element name="Settings" type="Link" locator="xpath"
-			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Settings']" />
 			
-			<Element name="ProductConfigWalmart" type="Link" locator="xpath"
-			selector="//span[contains(text(),'Product Configuration')]" />
-			
-			<Element name="SelectProductSync" type="Link" locator="xpath"
-			selector="//select[@id='Select2']" />
-			
-			<Element name="DisableProductSync" type="Link" locator="xpath"
-			selector="//select[@id='Select2']/option[contains(text(),'Disable')]" />
-			
-			<Element name="EnableProductSync" type="Link" locator="xpath"
-			selector="//select[@id='Select2']/option[contains(text(),'Enable')]" />
-			
-			<Element name="SaveButtonWalmartSync" type="Link" locator="xpath"
-			selector="(//*[@id='product_sync_save_button'])[2]" />
 			
 			<Element name="AddImageButton" type="Link" locator="xpath"
 			selector="//div[contains(@class,'_2qik1') and text()='Add image']" />
@@ -376,6 +360,124 @@
 			
 			<Element name="AddFileButton" type="Link" locator="xpath"
 			selector="//div[contains(@class,'_2qik1') and text()='Add file']" />
+			
+			<Element name="AllProductsCheckBox" type="Link" locator="xpath"
+			selector="//div[@class='_2PTXa _1pjCz']" />
+			
+			<Element name="EditProductButton" type="Link" locator="xpath"
+			selector="//button[contains(text(),'Edit products')]" />
+			
+			<Element name="AddFieldsButton" type="Link" locator="xpath"
+			selector="//button[@class='ui-button btn-slim']" />
+			
+			<Element name="MoreActionsButton" type="Link" locator="xpath"
+			selector="//span[@class='_29f6N']/child::span[contains(text(),'More actions')]" />
+			
+			<Element name="DeleteProductsOption" type="Link" locator="xpath"
+			selector="//div[contains(@class,'_3jzNy') and text()='Delete products']" />
+			
+			<Element name="DeleteAllProductsButtonOnPopup" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_1GgwJ') and text()='Delete']" />
+			
+			<Element name="TagsTextBox" type="TextBox" locator="xpath"
+			selector="//input[@placeholder='Vintage, cotton, summer']" />
+			
+			<Element name="Orders_Shopify" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_2UYjg') and text()='Orders']" />
+			
+			<Element name="CreateOrderButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_1GgwJ') and text()='Create order']" />
+			
+			<Element name="SearchProductsTextBoxInOrderPage" type="TextBox" locator="xpath"
+			selector="//button[contains(@name,'button') and text()='Browse products']/parent::div/child::div/child::input[@placeholder='Search products' ]" />
+			
+			<Element name="SearchProductsTextBoxInOrderPagePopup" type="TextBox" locator="xpath"
+			selector="(//input[@placeholder='Search products'])[2]" />
+			
+			<Element name="AddtoOrderButton" type="Link" locator="xpath"
+			selector="//button[contains(@id,'add-products') and text()='Add to order']" />
+			
+			<Element name="MarkAsPaidButton" type="Link" locator="xpath"
+			selector="//button[contains(@name,'button') and text()='Mark as paid']" />
+			
+			<Element name="CreateOrderButtonAfterPopup" type="Link" locator="xpath"
+			selector="//button[contains(@type,'submit') and text()='Create order']" />
+			
+			<Element name="AddVariantButtonforProductHavingVariant" type="Link" locator="xpath"
+			selector="//button[contains(@class,'_1Bu1z') and text()='Add variant']" />
+			
+			<Element name="RefundLink" type="Link" locator="xpath"
+			selector="//a[contains(@href,'/admin/orders') and text()='Refund']" />
+			
+			<Element name="IncreasingProductCount" type="Link" locator="xpath"
+			selector="(//div[@class='_1BqId']/descendant::span)[1]" />
+			
+			<Element name="RefundButton" type="Link" locator="xpath"
+			selector="//span[@class='_3pWum']/descendant::span[contains(@class,'_1GgwJ') and contains( text(),'Refund')]" />
+			
+			
+			
+			
+			
+			
+			
+			<!-- WIA Elements -->
+			
+			
+			<Element name="Settings" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Settings']" />
+			
+			<Element name="ProductConfigWalmart" type="Link" locator="xpath"
+			selector="//span[contains(text(),'Product Configuration')]" />
+			
+			<Element name="SelectProductSync" type="Link" locator="xpath"
+			selector="//select[@id='Select2']" />
+			
+			<Element name="DisableProductSync" type="Link" locator="xpath"
+			selector="//select[@id='Select2']/option[contains(text(),'Disable')]" />
+			
+			<Element name="EnableProductSync" type="Link" locator="xpath"
+			selector="//select[@id='Select2']/option[contains(text(),'Enable')]" />
+			
+			<Element name="SaveButtonWalmartSync" type="Link" locator="xpath"
+			selector="(//*[@id='product_sync_save_button'])[2]" />
+			
+			<Element name="ImportLimitExceededLabel" type="Link" locator="xpath"
+			selector="//div[@class='Polaris-Banner__Content']/p[contains(text(),'Import Limit Exceeded')]" />
+			
+			<Element name="SelectImportOptions" type="Link" locator="xpath"
+			selector="//select[@name='productimport']" />
+					
+			<Element name="ImportOptions_AllProducts" type="Link" locator="xpath"
+			selector="//select[@name='productimport']/child::option[contains(text(),'All Products')]" />
+			
+			<Element name="ImportOptions_PublishedProducts" type="Link" locator="xpath"
+			selector="//select[@name='productimport']/child::option[contains(text(),'Published Products')]" />
+			
+			<Element name="ImportOptions_FilterProducts" type="Link" locator="xpath"
+			selector="//select[@name='productimport']/child::option[contains(text(),'Filter Products')]" />
+			
+			<Element name="ConfirmImportButton" type="Link" locator="xpath"
+			selector="//span[@class='Polaris-Button__Content']/child::span[contains(text(),'Confirm')]" />
+			
+			<Element name="ImportLimitValue" type="Link" locator="xpath"
+			selector="//p[contains(text(),'SKU Import limit')]/parent::div[@class='Polaris-Stack__Item Polaris-Stack__Item--fill']/following-sibling::div/child::span" />
+			
+			<Element name="AutoProductCreateDropdown" type="Link" locator="xpath"
+			selector="//select[@name='product_setting[product_create][product_create]']" />
+			
+			<Element name="AutoProductCreateDropdown_No" type="Link" locator="xpath"
+			selector="//select[@name='product_setting[product_create][product_create]']/child::option[contains(text(),'No')]" />
+			
+			<Element name="AutoProductCreateDropdown_Yes" type="Link" locator="xpath"
+			selector="//select[@name='product_setting[product_create][product_create]']/child::option[contains(text(),'Yes')]" />
+			
+			<Element name="SaveButtonAutoProductCreate" type="Link" locator="xpath"
+			selector="(//*[@id='product_create_save_button'])[1]" />
+			
+					
+			
+			
 			
 			
 			
