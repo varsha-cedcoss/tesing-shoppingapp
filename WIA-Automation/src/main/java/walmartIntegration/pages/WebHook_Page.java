@@ -364,6 +364,43 @@ public class WebHook_Page extends commonPage {
 		element.sendKeys(text);
 				}
 	}
+	
+	public void updatingSimpleProductsAttributes(String product,String updateAttribute,String updatedText) throws InterruptedException {
+		Products_Shopify.click();
+		FilterProductsTextBox.sendKeys(product);
+		Thread.sleep(3000);
+		AfterFilterProduct.click();
+		Thread.sleep(3000);
+		if(updateAttribute.equalsIgnoreCase("title")) {
+			DeletingfromTextBoxandEnteringAnotherText(TitleTextBox,updatedText);	
+		}
+		else if(updateAttribute.equalsIgnoreCase("description")) {
+			DeletingfromTextBoxandEnteringAnotherText(DescriptionTextBox,updatedText);
+		}
+		else if(updateAttribute.equalsIgnoreCase("product type")) {
+			DeletingfromTextBoxandEnteringAnotherText(ProductTypeTextBox,updatedText);
+		}
+		else if(updateAttribute.equalsIgnoreCase("vendor")) {
+			DeletingfromTextBoxandEnteringAnotherText(VendorTextBox,updatedText);
+		}
+		else if(updateAttribute.equalsIgnoreCase("price")) {
+			DeletingfromTextBoxandEnteringAnotherText(PriceTextBox,updatedText);
+		}
+		else if(updateAttribute.equalsIgnoreCase("inventory")) {
+			DeletingfromTextBoxandEnteringAnotherText(QuantityAvailableTextBox,updatedText);
+		}
+		else if(updateAttribute.equalsIgnoreCase("weight")) {
+			DeletingfromTextBoxandEnteringAnotherText(WeightTextBox,updatedText);
+		}
+		else if(updateAttribute.equalsIgnoreCase("sku")) {
+			DeletingfromTextBoxandEnteringAnotherText(SKUTextBox,updatedText);
+		}
+		else if(updateAttribute.equalsIgnoreCase("barcode")) {
+			DeletingfromTextBoxandEnteringAnotherText(BarCodeTextBox,updatedText);
+		}
+		SaveButton.click();
+		Thread.sleep(3000);
+	}
 		
 	public void updatingTitle(String product,String updateText) throws InterruptedException {
 		Products_Shopify.click();
@@ -545,7 +582,7 @@ public class WebHook_Page extends commonPage {
 		else if(variant.equalsIgnoreCase("barcode")) {
 			DeletingfromTextBoxandEnteringAnotherText(BarCodeTextBox,updatedText);
 		}
-		else if(variant.equalsIgnoreCase("quantity")) {
+		else if(variant.equalsIgnoreCase("inventory")) {
 			DeletingfromTextBoxandEnteringAnotherText(QuantityAvailableTextBox,updatedText);
 		}
 		else if(variant.equalsIgnoreCase("weight")) {
@@ -591,6 +628,7 @@ public class WebHook_Page extends commonPage {
 		ProductConfigWalmart.click();
 			SelectProductSync.click();
 			EnableProductSync.click();
+			((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,150)");
 			SaveButtonWalmartSync.click();
 			Thread.sleep(2000);
 	}
@@ -670,7 +708,7 @@ public class WebHook_Page extends commonPage {
 	public void disablingAutoProductCreate() throws InterruptedException {
 		Settings.click();
 		ProductConfigWalmart.click();
-		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,200)");
+		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,280)");
 		AutoProductCreateDropdown.click();
 		AutoProductCreateDropdown_No.click();
 		SaveButtonAutoProductCreate.click();
@@ -680,10 +718,10 @@ public class WebHook_Page extends commonPage {
 	public void enablingAutoProductCreate() throws InterruptedException {
 		Settings.click();
 		ProductConfigWalmart.click();
-		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,200)");
+		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,280)");
 		AutoProductCreateDropdown.click();
 		AutoProductCreateDropdown_Yes.click();
-		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,80)");
+		((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollBy(0,100)");
 		SaveButtonAutoProductCreate.click();
 		Thread.sleep(3000);
 	}
@@ -765,7 +803,7 @@ Inventory.sendKeys(Keys.ESCAPE);
 			}
 	
 	public void updatingTags(String updatedText) throws InterruptedException {
-		TagsTextBox.sendKeys(updatedText);
+		DeletingfromTextBoxandEnteringAnotherText(TagsTextBox,updatedText);
 		TagsTextBox.sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		SaveButton.click();
@@ -809,7 +847,7 @@ Inventory.sendKeys(Keys.ESCAPE);
 		
 	}
 	
-	public ArrayList duplicatingSkuOfOneProductToAnother() {
+	public ArrayList duplicatingSkuOfOneProductToAnother(String variantToduplicateSku) {
 		ArrayList<String> varProdId=new ArrayList<String>();
 	
 	String varid=extractingVariantIdfromUrl();
@@ -819,7 +857,7 @@ Inventory.sendKeys(Keys.ESCAPE);
 	String sku=fetchingfromJsonObject(json,"variant","sku");
 	Reporter.log("Sku is "+sku);
 	DriverManager.getDriver().navigate().back();
-	selectingVariantProduct("36 / Grey");
+	selectingVariantProduct(variantToduplicateSku);
 	DeletingfromTextBoxandEnteringAnotherText(SKUTextBox,sku);
 	SaveButton.click();
 	String varid2=extractingVariantIdfromUrl();

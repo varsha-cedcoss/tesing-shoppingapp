@@ -330,7 +330,7 @@
 			selector="//span[contains(@class,'_3tI7Z') and text()='This product has multiple options, like different sizes or colors']" />
 			
 			<Element name="FirstVariantTextBox" type="TextBox" locator="xpath"
-			selector="//input[@id='PolarisTextField16']" />
+			selector="//div[@class='_2o3Ns']/child::div/child::div[contains(@class,'_3GizD')]/child::input[@id='PolarisTextField68']" />
 			
 			<Element name="FirstVariantValueTextBox" type="TextBox" locator="xpath"
 			selector="//input[@placeholder='Separate options with a comma']" />

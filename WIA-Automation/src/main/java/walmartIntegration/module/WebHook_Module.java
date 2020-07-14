@@ -44,6 +44,11 @@ public String fetchingfromJsonArray(String js, String obj, String objAttr, Strin
 public void creatingNewProduct(String title,String description,String prodType,String vendor,String price,String costperitem,String inventory,String weight) {
 	webP.creatingNewProduct(title,description,prodType,vendor,price,costperitem,inventory,weight);
 }
+
+public void updatingSimpleProductsAttributes(String product,String updateAttribute,String updatedText) throws InterruptedException {
+	webP.updatingSimpleProductsAttributes(product, updateAttribute, updatedText);
+}
+
 public void updatingTitle(String product, String updateText) throws InterruptedException {
 	webP.updatingTitle(product,updateText);
 }
@@ -221,8 +226,8 @@ public void selectingForBulkUpdate() throws InterruptedException {
 		webP.addingVariantforProductHavingVariant(sizeVal, colorVal, quantity);
 	}
 	
-	public ArrayList duplicatingSkuOfOneProductToAnother() {
-		ArrayList<String> varProdId=webP.duplicatingSkuOfOneProductToAnother();
+	public ArrayList duplicatingSkuOfOneProductToAnother(String variantToduplicateSku) {
+		ArrayList<String> varProdId=webP.duplicatingSkuOfOneProductToAnother(variantToduplicateSku);
 		return varProdId;
 			}
 	public void orderToBeRefunded(String OrderId) throws InterruptedException {
