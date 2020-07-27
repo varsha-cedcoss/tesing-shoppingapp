@@ -1,8 +1,13 @@
 package TestScripts;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -19,6 +24,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 
 import Framework.Custom.DriverManager;
 import Framework.DataReader.DataProviderParams;
@@ -82,6 +89,7 @@ public class WebHook extends commonTest {
 	    @Test( description = "Verifying if updating  simple product's attributes in shopify,then it also gets updated in Walmart", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=2)
 	public void updatingSimpleProductAttributesandVerifyingInWalmart(String product,String updateAttribute,String updatedText,String walmartJsonAttr) throws InterruptedException {
 		webM=new WebHook_Module();
+		Reporter.log("The parameter which we are updating is : "+updateAttribute);
 		String updatedweight=null;
 		String attribute=null;
 		Boolean bool=null;
@@ -130,6 +138,7 @@ else {
 	    @Test( description = "clicking all options", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=3)
 	public void updatingParametersForVariantsandVerifyingInWalmart(String product,String variant,String updateAttribute,String updatedText,String walmartJsonAtrribute) throws InterruptedException {
 		webM=new WebHook_Module();
+		Reporter.log("The parameter which we are updating is : "+updateAttribute);
 		 String updatedweight=null;
 		 Boolean bool=null;
 		webM.productToBeUpdatedforVariants(product);
@@ -166,7 +175,7 @@ else {
 	}
 		}
 	
-	/*
+	
 	@Test(priority=4)
 	public void verifyingVariantisAddedforProductWithoutVariant() throws InterruptedException {
 		webM=new WebHook_Module();
@@ -195,7 +204,7 @@ else {
 }
 	}
 	 
-	}*/
+	}
 
 	//option name of size and color is not present in json variant array
 		@DataProviderParams({ "fileName=InputData.csv", "tableName=productAlreadyHavingVariant" })
@@ -267,6 +276,7 @@ else {
 		webM=new WebHook_Module();
 		 
 		webM.productToBeUpdatedforVariants("jeans");
+		webM.selectingVariantProduct("33 / Black");
 		webM.uncheckingTrackQuantityCheckbox();
 		String varid=webM.extractingVariantIdfromUrl();
 		webM.extractingUrlAddingDotJsonAndLaunching();
@@ -385,7 +395,7 @@ Thread.sleep(5000);
 		}
 	}
 	
-	
+	//here updatingbulkinventory method, xpath is always changing
 	@Test(priority=12)
 	public void verifyingBulkInventoryUpdate() throws InterruptedException {
 		webM=new WebHook_Module();
@@ -397,7 +407,7 @@ Thread.sleep(5000);
 		String Wal=null;
 		webM.selectingForBulkUpdate();
 		webM.selectingAParticularFieldforBulkEditing("Inventory quantity");
-		String[] arr1= {"10","15","20"};
+		String[] arr1= {"10","15"};
 		for(int i=0;i<arr1.length;i++) {
 			String s=String.valueOf(i+1);
 			webM.selectingAParticularTextBoxofInventory(s);
@@ -441,7 +451,6 @@ Thread.sleep(5000);
 	}
 		}
 	}
-	
 	
 	@DataProviderParams({ "fileName=InputData.csv", "tableName=ProductWithExistingProductType" })
    @Test( description = "Verifying variant Inventory policy and Inventory Management", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=13)
@@ -553,7 +562,7 @@ else {
 		String originalInventory=	webM.fetchingfromJsonObject(json, "variant", "inventory_quantity");	
 		int oriInv = Integer.parseInt(originalInventory);
 		oriInv=oriInv+1;
-		//int oriInv = Integer.parseInt(originalInventory);
+		Reporter.log("The Original inventory after adding 1 is  "+oriInv);
 		webM.orderToBeRefunded(ordertobeRefunded);
 		webM.goToWalmartIntegrationApp();
 		webM.switchingtoTab(1);
@@ -563,7 +572,7 @@ else {
 		String jsonwal=webM.extractingJsonDataAsStringfromPage();
 		String inventoryAfterOrder=webM.fetchingfromJsonArrayofVariantsBasedonVariantId(jsonwal, "product", "variants", varid, "inventory");
 		int afterInv = Integer.parseInt(inventoryAfterOrder);
-		if(inventoryAfterOrder==originalInventory) {
+		if(afterInv==oriInv) {
 			Reporter.log("The Inventory Stock is added back.Update is successfull in WIA");
 			break label;
 		}
@@ -577,7 +586,7 @@ else {
 	
 	 @DataProviderParams({ "fileName=InputData.csv", "tableName=SyncDisableNotUpdating" })
 	 @Test( description = "Verifying if Sync is disabled,then attribute is not updating in walmart", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=17)
-	public void verifyingIfSyncDisableThenSKUNotUpdating(String product,String updateAttribute,String updatedText,String walmartJsonAtrribute) throws InterruptedException {
+	public void verifyingIfSyncDisableThenNotUpdating(String product,String updateAttribute,String updatedText,String walmartJsonAtrribute) throws InterruptedException {
 	webM=new WebHook_Module();
 	String attribute=null;
 	String updatedweight=null;
@@ -675,7 +684,7 @@ webM.enablingSyncInWalmart();
 	*/
 	
 	
-	
+	/*
 	
 	@DataProviderParams({ "fileName=InputData.csv", "tableName=CreatingNewProduct" })
     @Test( description = "Verifying no product is created on walmart when Auto Product Create is disabled", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=18)
@@ -691,6 +700,7 @@ public void verifyingNoProductCreatedWhenAutoProductCreateIsOff(String title,Str
 	String json=webM.extractingJsonDataAsStringfromPage();
 	String prod_id=	webM.fetchingfromJsonObject(json, "product", "id");
 	webM.switchingtoTab(1);
+	Thread.sleep(10000);
 	webM.launchWalmartUrlWithProdId(prod_id);
 	String jsonwal=webM.extractingJsonDataAsStringfromPage();
 	JsonArray arr=webM.fetchingJsonArray(jsonwal, "product", "variants");
@@ -710,8 +720,74 @@ public void verifyingNoProductCreatedWhenAutoProductCreateIsOff(String title,Str
 	
 	
 	
+	
+	
+	@DataProviderParams({ "fileName=InputData.csv", "tableName=ParticularAttributeSyncing" })
+    @Test( description = "Verifying if Sync is disabled for a particular attribute of a particular product, then no update should happen", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=19)
+	public void verifyingIfSyncDisabledForAParticularAttributeThenNotUpdating(String product,String attributeSync,String updatedText,String walmartJsonAttr) throws InterruptedException {
+		webM=new WebHook_Module();
+		Boolean bool=null;
+		String attribute=null;
+		String updatedweight=null;
+		webM.selectingProduct(product);
+		webM.extractingUrlAddingDotJsonAndLaunching();
+		String json=webM.extractingJsonDataAsStringfromPage();
+		String prod_id=	webM.fetchingfromJsonObject(json, "product", "id");
+		webM.goToWalmartIntegrationApp();
+		webM.switchingtoTab(1);
+		webM.gotoManageProducts();
+		webM.clickingEditButtonForProductsBasedOnProdId(prod_id);
+		webM.disablingOrEnablingSyncForAParticularAttribute(attributeSync);
+		webM.switchingtoTab(0);
+		webM.updatingSimpleProductsAttributes(product, attributeSync, updatedText);
+		if(attributeSync.equalsIgnoreCase("weight")) {
+			updatedweight= webM.convertingToPoundandRoundingOffto5DecPlace(updatedText);}
+		webM.switchingtoTab(1);
+		label:
+			for(int i=1;i<=10;i++) {
+				
+				webM.launchWalmartUrlWithProdId(prod_id);
+				String jsonwal=webM.extractingJsonDataAsStringfromPage();
+				
+				if(attributeSync.equalsIgnoreCase("title") ||attributeSync.equalsIgnoreCase("description") || attributeSync.equalsIgnoreCase("product type") || attributeSync.equalsIgnoreCase("vendor")) {
+					 attribute=webM.fetchingfromJsonObject(jsonwal, "product",walmartJsonAttr );
+					 bool=webM.verifyingUpdate(updatedText, attribute);
+				}
+				else if(attributeSync.equalsIgnoreCase("price") ||attributeSync.equalsIgnoreCase("inventory") ||attributeSync.equalsIgnoreCase("sku") ||attributeSync.equalsIgnoreCase("barcode") ){
+					 attribute=webM.fetchingfromJsonArray(jsonwal, "product", "variants", walmartJsonAttr);
+					 bool=webM.verifyingUpdate(updatedText, attribute);
+				}
+
+				else if(attributeSync.equalsIgnoreCase("weight")) {
+					attribute=webM.fetchingfromJsonArray(jsonwal, "product", "variants", walmartJsonAttr);
+					bool=webM.verifyingUpdate(updatedweight, attribute);
+				}
+								
+			if(bool.equals(false)){
+				if(i>=2) {
+					continue label;
+				}
+				else {
+					Reporter.log("Not updated because Sync is disabled for  "+attributeSync);
+					webM.gotoManageProducts();
+					webM.clickingEditButtonForProductsBasedOnProdId(prod_id);
+					webM.disablingOrEnablingSyncForAParticularAttribute(attributeSync);
+					webM.clickingSyncWithShopifyInProductSyncing();
+					Reporter.log("Sync with Shopify clicked");
+					continue label;
+				}
+				
+			}
+			else {
+				Reporter.log("Update completed");
+				break label;
+			}
+			
+			}
+	}*/
+	
 	@DataProviderParams({ "fileName=InputData.csv", "tableName=ImportLimitReached" })
-    @Test( description = "Verifying after refund inventory is added back to the product", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=19)
+    @Test( description = "Verifying if import limit reached, then delete 1 variant and add 2. then only one should get added", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=19)
 	public void verifyingWhenImportLimitReachedDelete1VariantAdd2VariantThen1VariantShouldBeAdded(String product,String variantToDelete,String firstSize,String firstColor,String firstInventory,String secondSize,String secondColor,String secondInventory) throws InterruptedException {
 		webM=new WebHook_Module();
 		webM.goToWalmartIntegrationApp();
@@ -762,10 +838,7 @@ public void verifyingNoProductCreatedWhenAutoProductCreateIsOff(String title,Str
 	
 	
 	
-//	@AfterMethod
-//	public void aftermethod() throws InterruptedException {
-//		Thread.sleep(5000);
-//		 DriverManager.getDriver().quit();
-//	}
+	
+
 	
 }

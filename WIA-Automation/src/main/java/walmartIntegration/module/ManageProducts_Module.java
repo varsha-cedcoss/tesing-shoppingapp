@@ -15,8 +15,21 @@ public class ManageProducts_Module {
 	public void LoggingInAccount() throws InterruptedException {
 		manProd.LoggingInAccount();
 	}
+	
+	public void selectingAShop(String shopName) throws InterruptedException {
+		manProd.selectingAShop(shopName);
+	}
+	
 	public void VerifyingSyncWithShopify() throws InterruptedException, IOException {
 		manProd.VerifyingSyncWithShopify();
 	}
+	
+	public void updatingprice() throws InterruptedException, IOException {
+		manProd.updatingprice();
+	}
+	
+	 public void updatingInventory() throws InterruptedException, IOException {
+		 manProd.updatingInventory();
+	 }
 
 }

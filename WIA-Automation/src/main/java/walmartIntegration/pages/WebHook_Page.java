@@ -105,6 +105,25 @@ public class WebHook_Page extends commonPage {
 	private Link RefundLink;
 	private Link IncreasingProductCount;
 	private Link RefundButton;
+	private Link ImportProducts;
+	private Link Title_Sync;
+	private Link Sku_Sync;
+	private Link Image_Sync;
+	private Link Inventory_Sync;
+	private Link Weight_Sync;
+	private Link Price_Sync;
+	private Link Barcode_Sync;
+	private Link Vendor_Sync;
+	private Link ProductType_Sync;
+	private Link Description_Sync;
+	private Link Product_Module;
+	private Link Product_ManageProduct;
+	private Link ProductSyncing;
+	private Link SaveButton_ProductSyncing;
+	private Link SyncWithShopify_ProductSyncing;
+	private Link SyncButton;
+	private Link Dashboard;
+	private Link RefreshHereDashBoard;
 	
 	public WebHook_Page()  {
 		super(WebHook_Page.class.getSimpleName());
@@ -258,7 +277,44 @@ public class WebHook_Page extends commonPage {
 				"WebHook_Page", "IncreasingProductCount");
 		RefundButton= new Link(ReadXML.getElementLocator("WebHook_Page", "RefundButton"),
 				"WebHook_Page", "RefundButton");
-		
+		ImportProducts= new Link(ReadXML.getElementLocator("WebHook_Page", "ImportProducts"),
+				"WebHook_Page", "ImportProducts");
+		Title_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Title_Sync"),
+				"WebHook_Page", "Title_Sync");
+		Sku_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Sku_Sync"),
+				"WebHook_Page", "Sku_Sync");
+		Image_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Image_Sync"),
+				"WebHook_Page", "Image_Sync");
+		Inventory_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Inventory_Sync"),
+				"WebHook_Page", "Inventory_Sync");
+		Weight_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Weight_Sync"),
+				"WebHook_Page", "Weight_Sync");
+		Price_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Price_Sync"),
+				"WebHook_Page", "Price_Sync");
+		Barcode_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Barcode_Sync"),
+				"WebHook_Page", "Barcode_Sync");
+		Vendor_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Vendor_Sync"),
+				"WebHook_Page", "Vendor_Sync");
+		ProductType_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "ProductType_Sync"),
+				"WebHook_Page", "ProductType_Sync");
+		Description_Sync= new Link(ReadXML.getElementLocator("WebHook_Page", "Description_Sync"),
+				"WebHook_Page", "Description_Sync");
+		Product_Module= new Link(ReadXML.getElementLocator("WebHook_Page", "Product_Module"),
+				"WebHook_Page", "Product_Module");
+		Product_ManageProduct= new Link(ReadXML.getElementLocator("WebHook_Page", "Product_ManageProduct"),
+				"WebHook_Page", "Product_ManageProduct");
+		ProductSyncing= new Link(ReadXML.getElementLocator("WebHook_Page", "ProductSyncing"),
+				"WebHook_Page", "ProductSyncing");
+		SaveButton_ProductSyncing= new Link(ReadXML.getElementLocator("WebHook_Page", "SaveButton_ProductSyncing"),
+				"WebHook_Page", "SaveButton_ProductSyncing");
+		SyncWithShopify_ProductSyncing= new Link(ReadXML.getElementLocator("WebHook_Page", "SyncWithShopify_ProductSyncing"),
+				"WebHook_Page", "SyncWithShopify_ProductSyncing");
+		SyncButton= new Link(ReadXML.getElementLocator("WebHook_Page", "SyncButton"),
+				"WebHook_Page", "SyncButton");
+		Dashboard= new Link(ReadXML.getElementLocator("WebHook_Page", "Dashboard"),
+				"WebHook_Page", "Dashboard");
+		RefreshHereDashBoard= new Link(ReadXML.getElementLocator("WebHook_Page", "RefreshHereDashBoard"),
+				"WebHook_Page", "RefreshHereDashBoard");
 	}
 	
 	public void LogginginShopify() throws InterruptedException {
@@ -312,6 +368,7 @@ public class WebHook_Page extends commonPage {
 		
 		
 	}
+	
 	public String fetchingfromJsonObject(String js,String obj, String objAttr) {
 		
 		JsonObject jsonObject = new JsonParser().parse(js).getAsJsonObject();
@@ -319,6 +376,7 @@ public class WebHook_Page extends commonPage {
 		Reporter.log("The  " +objAttr+ "  of the product is:   "+objectAttr);
 				return objectAttr;
 		}
+	
 	public JsonArray fetchingJsonArray(String js, String obj, String objAttr) {
 		JsonObject jsonObject = new JsonParser().parse(js).getAsJsonObject();
 		JsonArray arr = jsonObject.getAsJsonObject(obj).getAsJsonArray(objAttr);
@@ -762,8 +820,9 @@ public class WebHook_Page extends commonPage {
 	DriverManager.getDriver().findElement(By.xpath(inventoryTextbox)).click();
 	}
 	
-	//if in for loop, take num= i
+	//if in for loop, take num= i+2
 	public void updatingBulkInventory(String num,String updatedQty) {
+	//	(//input[@name='product[variants_attributes][3][inventory_quantity_adjustment]'])[1]
 		String invUpdate="(//input[@name='product[variants_attributes][";
 		invUpdate=invUpdate.concat(num);
 		invUpdate=invUpdate.concat("][inventory_quantity_adjustment]'])[1]");
@@ -887,36 +946,99 @@ Inventory.sendKeys(Keys.ESCAPE);
 	}
 	
 	public String checkingIfImportLimitReached() throws InterruptedException{
-	String val=ImportLimitValue.getText().replace("used", "");
+		String s=null;
+		label:
+			for(int i=0;i<=10;i++) {
+		String val=ImportLimitValue.getText().replace("used", "");
 	val=val.replace(" ", "");
 	String[] limit=val.split("/");
-	String s=null;
+	
 	int actualLimit = Integer.valueOf(limit[1]);
 	int usedofLimit = Integer.valueOf(limit[0]);
 		Reporter.log("Import Limit Values are:     "+Arrays.toString(limit));
 		Reporter.log("Actual Limit Value is:     "+actualLimit);
 		Reporter.log("Used Limit is:     "+usedofLimit);
-		if(usedofLimit>actualLimit) {
-			int limitExceeded=usedofLimit-actualLimit;
-			 s="LimitExceeded";
-			Reporter.log("Import Limit exceeded by:  "+limitExceeded);
-			return s;
-					}
-		else if(usedofLimit<actualLimit) {
-			int limitNotExceeded=actualLimit-usedofLimit;
-			 s="LimitNotExceeded";
-			Reporter.log("Import Limit not exceeded by:  "+limitNotExceeded);
-			return s;
-		}
-		else if(usedofLimit==actualLimit) {
+		
+		 if(usedofLimit==actualLimit) {
 			Reporter.log("Import Limit Reached. In This case you have to delete 1 product and add two product");
 			 s="LimitReached";
-			return s;
+			 break label;
+			 		 
 		}
+		else {
+			ImportProducts.click();
+			ImportOptions_AllProducts.click();
+			ConfirmImportButton.click();
+			Dashboard.click();
+			RefreshHereDashBoard.click();
+			continue label;
+		}
+			}
 		return s;
 		}
+	//todo
+	public void checkingifParticularAttributeisSyncDisabled(String prodId) {
+	String url="https://apps.cedcommerce.com/integration/walmart/walmartcustomwork/get-settings-data?id=";
+	url=url.concat(prodId);
+	DriverManager.getDriver().get(url);
+	String json=extractingJsonDataAsStringfromPage();
 	
+	}
 	
+	public void gotoManageProducts() {
+		Product_Module.click();
+		Product_ManageProduct.click();
+	}
+	
+	public void clickingEditButtonForProductsBasedOnProdId(String prodId) {
+	String edit="//*[contains(@href,'/integration/walmart/product/editproduct') and @product_id='";
+	edit=edit.concat(prodId);
+	edit=edit.concat("']");
+	DriverManager.getDriver().findElement(By.xpath(edit)).click();
+	}
+	
+	public void disablingOrEnablingSyncForAParticularAttribute(String attribute) {
+		ProductSyncing.click();
+		switch(attribute) {
+		case "title":
+			Title_Sync.click();
+			break;
+		case "sku":
+			Sku_Sync.click();
+			break;
+		case "image":
+			Image_Sync.click();
+			break;
+		case "inventory":
+			Inventory_Sync.click();
+			break;
+		case "weight":
+			Weight_Sync.click();
+			break;
+		case "vendor":
+			Vendor_Sync.click();
+			break;
+		case "barcode":
+			Barcode_Sync.click();
+			break;
+		case "price":
+			Price_Sync.click();
+			break;
+		case "product type":
+			ProductType_Sync.click();
+			break;
+		case "desciption":
+			Description_Sync.click();
+			break;
+		}
+		SaveButton_ProductSyncing.click();
+		}
+	
+	public void clickingSyncWithShopifyInProductSyncing() {
+		
+		SyncWithShopify_ProductSyncing.click();		
+		SyncButton.click();
+	}
 	
 	
 	

@@ -187,6 +187,9 @@
 			<Element name="LoginAsButton" type="Link" locator="xpath"
 			selector="//a[@title='Login As']" />
 			
+			<Element name="Product_Module" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Product']" />
+			
 			<Element name="Product_ManageProduct" type="Link" locator="xpath"
 			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Manage Products')]" />
 			
@@ -222,6 +225,9 @@
 			
 			<Element name="BacktoPreviousButton" type="Link" locator="xpath"
 			selector="//span[@class='Polaris-Button__Content']/child::span[contains(text(),'Back To Previous')]"/>
+			
+			<Element name="UpdatePrice" type="Link" locator="xpath"
+			selector="//div[@class='actions-bulk']/following::select[@id='product_select']/child::option[contains(text(),'Update Price')]"/>
 			
 			
 			
@@ -422,7 +428,8 @@
 			
 			
 			<!-- WIA Elements -->
-			
+			<Element name="ImportProducts" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Import Products']" />
 			
 			<Element name="Settings" type="Link" locator="xpath"
 			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Settings']" />
@@ -475,10 +482,99 @@
 			<Element name="SaveButtonAutoProductCreate" type="Link" locator="xpath"
 			selector="(//*[@id='product_create_save_button'])[1]" />
 			
-					
+			<Element name="Title_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Title'])[1]" />
+			
+			<Element name="Sku_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Sku'])[1]" />
+			
+			<Element name="Image_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Image'])[1]" />
+			
+			<Element name="Inventory_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Inventory'])[1]" />
+			
+			<Element name="Weight_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Weight'])[1]" />
+			
+			<Element name="Price_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Price'])[1]" />
+			
+			<Element name="Barcode_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Barcode'])[1]" />
+			
+			<Element name="Vendor_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Vendor'])[1]" />
+			
+			<Element name="ProductType_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Product Type'])[1]" />
+			
+			<Element name="Description_Sync" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Choice__Label') and text()='Description'])[1]" />		
+			
+			<Element name="Product_Module" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Product']" />
+			
+			<Element name="Product_ManageProduct" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Manage Products')]" />
+			
+			<Element name="ProductSyncing" type="Link" locator="xpath"
+			selector="//span[contains(text(),'Product Syncing')]" />
+			
+			<Element name="SaveButton_ProductSyncing" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text') and text()='Save']" />
+			
+			<Element name="SyncWithShopify_ProductSyncing" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text') and text()='Sync with Shopify']" />
+			
+			<Element name="SyncButton" type="Link" locator="xpath"
+			selector="//span[text()='Sync']" />
+			
+			<Element name="Dashboard" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Dashboard']" />
+			
+			<Element name="RefreshHereDashBoard" type="Link" locator="xpath"
+			selector="//strong[contains(text(),'here')]" />
+			
+			
+			</Page>
 			
 			
 			
+			<Page name="ImportExport_Page">
+			
+			<Element name="ImportExport" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Import Export']" />
+			
+			<Element name="ImportExport_ProductUpdate" type="Link" locator="xpath"
+			selector="//li[@class='Polaris-Navigation__Item']/a[contains(text(),'Product Update')]" />
+			
+			<Element name="ImportExport_RetireProduct" type="Link" locator="xpath"
+			selector="//a[contains(.,'Retire Product')]" />
+			
+			<Element name="ImportExport_UploadProduct" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Upload Product')]" />
+			
+			<Element name="ImportExport_AdvancedAttributes" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Advanced Attributes')]" />
+			
+			<Element name="ImportExport_ShippingExceptions" type="Link" locator="xpath"
+			selector="//ul[@class='Polaris-Navigation__List']//a[contains(text(),'Shipping Exceptions')]" />
+			
+			<Element name="SelectProductStatusDropdown" type="TextBox" locator="xpath"
+			selector="//*[@placeholder='Select your Product Status']" />
+			
+			<Element name="NotUploadedOption" type="Link" locator="xpath"
+			selector="//*[contains(@class,'select2-results__option') and text()='Not Uploaded']" />
+			
+			<Element name="SelectColumnDropdown" type="TextBox" locator="xpath"
+			selector="//*[@placeholder='Select Column']" />
+			
+			<Element name="ExportButton" type="Link" locator="xpath"
+			selector="//*[@class='Polaris-Button__Content']/child::span[contains(text(),'Export')]" />
+			
+			<Element name="DemoClick" type="Link" locator="xpath"
+			selector="//*[contains(text(),'Get csv of all')]" />
 			
 			
 			
@@ -486,5 +582,23 @@
 			</Page>
 			
 			
+			<Page name="PricingPlan_Page">
+			
+			<Element name="PricingPlan" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Pricing Plan']" />
+			
+			<Element name="ApproveSubscriptionButton" type="Link" locator="xpath"
+			selector="//button[contains(@type,'submit') and text()='Approve subscription']" />
+			
+			<Element name="AppsOptionInShopify" type="Link" locator="xpath"
+			selector="//*[contains(@class,'Polaris-Navigation__Text_yj3uv') and text()='Apps']" />
+			
+			<Element name="BilledMonthly" type="Link" locator="xpath"
+			selector="//span[contains(text(),'Billed Monthly')]" />
+			
+			
+			
+			
+			</Page>
 			
 			</Application>

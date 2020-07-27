@@ -239,5 +239,21 @@ public void selectingForBulkUpdate() throws InterruptedException {
 		return s;
 	}
 	
+	public void gotoManageProducts() {
+		webP.gotoManageProducts();
+	}
+	
+	public void clickingEditButtonForProductsBasedOnProdId(String prodId) {
+		webP.clickingEditButtonForProductsBasedOnProdId(prodId);
+	}
+	
+	public void clickingSyncWithShopifyInProductSyncing() {
+		webP.clickingSyncWithShopifyInProductSyncing();
+	}
+	
+	public void disablingOrEnablingSyncForAParticularAttribute(String attribute) {
+		webP.disablingOrEnablingSyncForAParticularAttribute(attribute);
+	}
+	
 	
 }
