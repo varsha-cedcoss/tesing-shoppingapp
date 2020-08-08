@@ -41,10 +41,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DashBoard extends commonTest{
 	 WebDriver driver;
-//	ElementPath elementpath;
-//	String ShopifyloginMail="shantanu.cedcoss@gmail.com";
-//	String ShopifyLoginPassword="dracarys";
-//	String Elements=null;
+
 	private DashboardModule dashM;
 
 @BeforeMethod
@@ -53,24 +50,18 @@ public class DashBoard extends commonTest{
 	dashM.LoggingInAccount();
 	}
 		
-//@Test(priority=1)
-//	public void clickingAllOptions() {
-//		dashM=new DashboardModule();
-//		dashM.ClickingAllOptions();
-//	
-//	}
-//@Test(priority=2)
-//public void clickingAllLinks() {
-//	dashM=new DashboardModule();
-//	dashM.ClickingAllLinks();
-//}
-@Test
-public void ManageProduct() throws InterruptedException, IOException {
-	dashM=new DashboardModule();
-	dashM.VerifyingSyncWithShopify();
+@Test(priority=1)
+	public void clickingAllOptions() throws InterruptedException {
+		dashM=new DashboardModule();
+		dashM.ClickingAllOptions();
 	
-
+	}
+@Test(priority=2)
+public void clickingAllLinks() {
+	dashM=new DashboardModule();
+	dashM.ClickingAllLinks();
 }
+
 
 
 

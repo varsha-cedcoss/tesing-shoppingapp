@@ -318,7 +318,7 @@ public class WebHook_Page extends commonPage {
 	}
 	
 	public void LogginginShopify() throws InterruptedException {
-
+//     dracarys
 		DriverManager.getDriver().get("https://automationtesting.myshopify.com/admin/");
 		ShopifyLogin.sendKeys("shantanugupta@cedcommerce.com");
 		Thread.sleep(2000);
@@ -391,7 +391,7 @@ public class WebHook_Page extends commonPage {
 		Reporter.log(""+arr.size());
 		String val=null;
 		for (int i = 0; i < arr.size(); i++) {
-			val = arr.get(i).getAsJsonObject().get(AttrVal).getAsString();
+			
 		     break;
 		  	}
 		Reporter.log("The  " +AttrVal+ "  of the product is:   "+val);
@@ -645,6 +645,12 @@ public class WebHook_Page extends commonPage {
 		}
 		else if(variant.equalsIgnoreCase("weight")) {
 			DeletingfromTextBoxandEnteringAnotherText(WeightTextBox,updatedText);
+		}
+		else if(variant.equalsIgnoreCase("title")) {
+			DeletingfromTextBoxandEnteringAnotherText(TitleTextBox,updatedText);
+		}
+		else if(variant.equalsIgnoreCase("description")) {
+			DeletingfromTextBoxandEnteringAnotherText(DescriptionTextBox,updatedText);
 		}
 		SaveButton.click();
 		

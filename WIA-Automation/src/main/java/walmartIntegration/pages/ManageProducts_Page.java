@@ -36,6 +36,12 @@ public class ManageProducts_Page extends commonPage{
 	private TextBox ShopNameTextBox;
 	private Link LoginAsButton;
 	private Link UpdatePrice;
+	private Link UpdateStatus;
+	private Link ShopUrlTextBox;
+	private Link ErrorMessageForUpdateStatus;
+	private Link SuccessHeadingForUpdateStatus;		
+	private TextBox MerchantIDTextBox;
+	
 	
 	public ManageProducts_Page() {
 		super(ManageProducts_Page.class.getSimpleName());
@@ -82,6 +88,16 @@ public class ManageProducts_Page extends commonPage{
 				"ManageProducts_Page", "LoginAsButton");
 		UpdatePrice= new Link(ReadXML.getElementLocator("ManageProducts_Page", "UpdatePrice"),
 				"ManageProducts_Page", "UpdatePrice");
+		UpdateStatus= new Link(ReadXML.getElementLocator("ManageProducts_Page", "UpdateStatus"),
+				"ManageProducts_Page", "UpdateStatus");
+		ShopUrlTextBox= new Link(ReadXML.getElementLocator("ManageProducts_Page", "ShopUrlTextBox"),
+				"ManageProducts_Page", "ShopUrlTextBox");
+		ErrorMessageForUpdateStatus= new Link(ReadXML.getElementLocator("ManageProducts_Page", "ErrorMessageForUpdateStatus"),
+				"ManageProducts_Page", "ErrorMessageForUpdateStatus");
+		SuccessHeadingForUpdateStatus= new Link(ReadXML.getElementLocator("ManageProducts_Page", "SuccessHeadingForUpdateStatus"),
+				"ManageProducts_Page", "SuccessHeadingForUpdateStatus");
+		MerchantIDTextBox= new TextBox(ReadXML.getElementLocator("ManageProducts_Page", "MerchantIDTextBox"),
+				"ManageProducts_Page", "MerchantIDTextBox");
 	}
 	
 	public void LoggingInAccount() throws InterruptedException {
@@ -167,5 +183,43 @@ public class ManageProducts_Page extends commonPage{
 		     Thread.sleep(10000);
 		     ErrorMessageHandling();
 		     Reporter.log("Inventory has been updated");
+		 }
+		 
+		 public void updatingStatus() {
+			 Product_Module.click();
+		      Product_ManageProduct.click();
+		      UpdateStatus.click();
+		 }
+		 public void selectingAShopUsingShopUrl(String shopurl) throws InterruptedException {
+			 WalmartDropdown.click();
+				WalmartShopDetails.click();
+				ShopUrlTextBox.sendKeys(shopurl);
+				ShopUrlTextBox.sendKeys(Keys.ENTER);
+				Thread.sleep(3000);
+				LoginAsButton.click();
+				Thread.sleep(5000);
+		 }
+		 
+		 public void selectAShopUsingMerchantId(String merchId) throws InterruptedException {
+			 WalmartDropdown.click();
+				WalmartShopDetails.click();
+				MerchantIDTextBox.sendKeys(merchId);
+				MerchantIDTextBox.sendKeys(Keys.ENTER);
+				Thread.sleep(3000);
+				LoginAsButton.click();
+				Thread.sleep(5000);
+			}
+		 
+		 public Boolean errorCheckingForUpdateStatus() {
+			 Boolean bool=null;
+			 if(ErrorMessageForUpdateStatus.isPresent()) {
+				 Reporter.log("The Error message is:  "+ErrorMessageForUpdateStatus.getText());
+				bool=true;
+			 }
+			 else if(SuccessHeadingForUpdateStatus.isPresent()) {
+				 Reporter.log("The Success Heading is:  "+SuccessHeadingForUpdateStatus.getText());
+				 bool=false;
+			 }
+			 return bool;
 		 }
 }

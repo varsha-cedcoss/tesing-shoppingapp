@@ -142,7 +142,7 @@
 					<reportsDirectory>/home/cedcoss/Downloads/CedcossAutomation/WIA/Report</reportsDirectory>
 					<workingDirectory>${project.basedir}</workingDirectory>
 					<suiteXmlFiles>
-						<suiteXmlFile>${project.basedir}/testsuite/${suiteXmlFile}</suiteXmlFile>
+						<suiteXmlFile>${project.basedir}/EmptySuite/${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

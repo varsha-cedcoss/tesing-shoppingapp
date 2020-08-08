@@ -31,5 +31,19 @@ public class ManageProducts_Module {
 	 public void updatingInventory() throws InterruptedException, IOException {
 		 manProd.updatingInventory();
 	 }
-
+	 public void updatingStatus() {
+		 manProd.updatingStatus();
+	 }
+	 public void selectingAShopUsingShopUrl(String shopurl) throws InterruptedException {
+		 manProd.selectingAShopUsingShopUrl(shopurl);
+	 }
+	 
+	 public Boolean errorCheckingForUpdateStatus() {
+		 Boolean bool=manProd.errorCheckingForUpdateStatus();
+		 return bool;
+	 }
+	 public void selectAShopUsingMerchantId(String merchId) throws InterruptedException {
+		 manProd.selectAShopUsingMerchantId(merchId); 
+	 }
+	 
 }

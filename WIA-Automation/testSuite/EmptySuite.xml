@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="emptySuite">
+	<test name="demo">
+<classes>
+<class name="TestScripts.SalesOrder">
+            <!-- start with updating order status through the link given on top of the page -->
+			<method name="updatingOrderStatusThroughLink"></method>
+			<!-- end with updating order status through the link given on top of the page -->
+
+</class>
+
+</classes>
+
+</test>
+</suite>

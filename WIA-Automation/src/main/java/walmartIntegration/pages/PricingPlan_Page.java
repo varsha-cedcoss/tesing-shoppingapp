@@ -17,7 +17,6 @@ import walmartIntegration.utilities.ReadXML;
 
 public class PricingPlan_Page extends commonPage {
 
-	private TextBox ShopifyUrlTextbox;
 	private TextBox ShopifyLogin;
 	private Link NextButton;
 	private TextBox ShopifyPassword;
@@ -26,6 +25,10 @@ public class PricingPlan_Page extends commonPage {
 	private Link PricingPlan;
 	private Link ApproveSubscriptionButton;
 	private Link BilledMonthly;
+	private Link DashboardWelcome;
+	private Link WalmartProfile;
+	private Link AppOverviewOption;
+	private Link RemainingDays;
 	
 	
 	
@@ -35,8 +38,6 @@ public class PricingPlan_Page extends commonPage {
 		super(PricingPlan_Page.class.getSimpleName());
 		this.pageURL= LocalConfig.WIA_URL;
 		
-		ShopifyUrlTextbox= new TextBox(ReadXML.getElementLocator("WebHook_Page", "ShopifyUrlTextbox"),
-				"WebHook_Page", "ShopifyUrlTextbox");
 		ShopifyLogin= new TextBox(ReadXML.getElementLocator("WebHook_Page", "ShopifyLogin"),
 				"WebHook_Page", "ShopifyLogin");
 		NextButton= new Link(ReadXML.getElementLocator("WebHook_Page", "NextButton"),
@@ -53,6 +54,14 @@ public class PricingPlan_Page extends commonPage {
 				"PricingPlan_Page", "ApproveSubscriptionButton");
 		BilledMonthly= new Link(ReadXML.getElementLocator("PricingPlan_Page", "BilledMonthly"),
 				"PricingPlan_Page", "BilledMonthly");
+		DashboardWelcome= new Link(ReadXML.getElementLocator("PricingPlan_Page", "DashboardWelcome"),
+				"PricingPlan_Page", "DashboardWelcome");
+		WalmartProfile= new Link(ReadXML.getElementLocator("PricingPlan_Page", "WalmartProfile"),
+				"PricingPlan_Page", "WalmartProfile");
+		AppOverviewOption= new Link(ReadXML.getElementLocator("PricingPlan_Page", "AppOverviewOption"),
+				"PricingPlan_Page", "AppOverviewOption");
+		RemainingDays= new Link(ReadXML.getElementLocator("PricingPlan_Page", "RemainingDays"),
+				"PricingPlan_Page", "RemainingDays");
 	}
 	
 	
@@ -78,6 +87,15 @@ public class PricingPlan_Page extends commonPage {
 		ArrayList<String> tabsArr=new ArrayList<String>(DriverManager.getDriver().getWindowHandles());
 		DriverManager.getDriver().switchTo().window(tabsArr.get(tabnum));
 			}
+	
+	public String checkingRemainingDaysOfSubscription() throws InterruptedException {
+		DashboardWelcome.click();
+		WalmartProfile.click();
+		AppOverviewOption.click();
+		Thread.sleep(5000);
+		String days=RemainingDays.getText();
+		return days;
+	}
 	
 	public void gotoPricingPlan() {
 		PricingPlan.click();
@@ -138,6 +156,14 @@ public class PricingPlan_Page extends commonPage {
 		return price[0];
 	}
 	
+	public String getChargeID() {
+		String url=DriverManager.getDriver().getCurrentUrl();
+		String[] u=url.split("charges/");
+		String[] v=u[1].split("/");
+		Reporter.log(""+v[0]);
+		return v[0];
+ 	}
+	
 	public void clickingApproveSubscription() {
 		ApproveSubscriptionButton.click();
 	}
@@ -147,11 +173,14 @@ public class PricingPlan_Page extends commonPage {
 	String actual=pay.getText();
 	String expected="Payment Successfully Done";
 	Assert.assertEquals(actual, expected);
-	Reporter.log("Payment has been successfully done");
-	
+	Reporter.log("Payment has been successfully done");	
 	}
 	
-	
+	public void launchingUrlByChargeId(String chargeId) {
+	String url="https://apps.cedcommerce.com/integration/walmart/walmartcustomwork/get-payment-data?charge_id=";
+	url=url.concat(chargeId);
+	DriverManager.getDriver().get(url);
+	}
 	
 	
 	

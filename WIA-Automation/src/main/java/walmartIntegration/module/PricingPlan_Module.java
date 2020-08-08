@@ -20,6 +20,12 @@ public class PricingPlan_Module {
 	public void switchingtoTab(int tabnum) {
 		planP.switchingtoTab(tabnum);
 	}
+	
+	public String checkingRemainingDaysOfSubscription() throws InterruptedException {
+	String days=planP.checkingRemainingDaysOfSubscription();
+	return days;
+	}
+	
 	public void gotoPricingPlan() {
 		planP.gotoPricingPlan();
 	}
@@ -41,6 +47,11 @@ public class PricingPlan_Module {
 		String price=planP.launchingdifferentUrlBasedOnAnnualAndMonthlyBilling(index);
 		return price;
 		}
+		
+		public String getChargeID() {
+			String chargeId=planP.getChargeID();
+			return chargeId;
+		}
 	
 		public void clickingApproveSubscription() {
 			planP.clickingApproveSubscription();
@@ -48,4 +59,8 @@ public class PricingPlan_Module {
 		public void verifyingPaymentDone() {
 			planP.verifyingPaymentDone();
 		}
+		public void launchingUrlByChargeId(String chargeId) {
+			planP.launchingUrlByChargeId(chargeId);
+		}
+		
 }
