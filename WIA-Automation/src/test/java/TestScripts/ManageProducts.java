@@ -32,26 +32,26 @@ public class ManageProducts extends commonTest{
 	
 	@DataProviderParams({ "fileName=InputData.csv", "tableName=ManageProd_ShopNames" })
     @Test( description = "Verifying sync with shopify", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=19)
-	public void verifyingSyncwithShopify(String shopName) throws InterruptedException, IOException {
+	public void verifyingSyncwithShopify(String shopUrl) throws InterruptedException, IOException {
 		manProdM=new ManageProducts_Module();
-		manProdM.selectingAShopUsingShopUrl(shopName);
+		manProdM.selectingAShopUsingShopUrl(shopUrl);
 		manProdM.VerifyingSyncWithShopify();
 		
 }
 //	@DataProviderParams({ "fileName=InputData.csv", "tableName=ManageProd_ShopNames" })
 //    @Test( description = "Verifying updating Price", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=19)
-//	public void verifyingUpdatingPrice(String shopName) throws InterruptedException, IOException {	
+//	public void verifyingUpdatingPrice(String shopUrl) throws InterruptedException, IOException {	
 //		manProdM=new ManageProducts_Module();
-//		manProdM.selectingAShopUsingShopUrl(shopName);
+//		manProdM.selectingAShopUsingShopUrl(shopUrl);
 //		manProdM.updatingprice();
 //	}
 	
 
 //	@DataProviderParams({ "fileName=InputData.csv", "tableName=ManageProd_ShopNames" })
 //    @Test( description = "Verifying updating Inventory", dataProviderClass = DataReaderUtil.class, dataProvider = "CsvDataProvider",priority=19)
-//	public void verifyingUpdatingInventory(String shopName) throws InterruptedException, IOException {
+//	public void verifyingUpdatingInventory(String shopUrl) throws InterruptedException, IOException {
 //		manProdM=new ManageProducts_Module();
-//		manProdM.selectingAShopUsingShopUrl(shopName);	
+//		manProdM.selectingAShopUsingShopUrl(shopUrl);	
 //		manProdM.updatingInventory();
 //	}
 //	
