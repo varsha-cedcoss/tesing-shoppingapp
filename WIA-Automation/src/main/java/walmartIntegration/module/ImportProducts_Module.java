@@ -9,4 +9,13 @@ public class ImportProducts_Module {
 	public ImportProducts_Module() {
 		impProdP=new ImportProducts_Page();
 	}
+	
+	public void gotoImportProductsTab() {
+		impProdP.gotoImportProductsTab();
+	}
+	
+	public void importingAllProducts() {
+		impProdP.importingAllProducts();
+	}
+	
 }

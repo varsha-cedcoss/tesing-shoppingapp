@@ -1,5 +1,9 @@
 package walmartIntegration.pages;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import Framework.Custom.DriverManager;
 import Framework.GUI.commons.page.commonPage;
 import Framework.GUI.element.Link;
 import walmartIntegration.utilities.ReadXML;
@@ -56,9 +60,14 @@ public class ImportProducts_Page extends commonPage {
 	}
 	
 	public void gotoImportProductsTab() {
+	//	 new WebDriverWait(DriverManager.getDriver(), 20).until(ExpectedConditions.visibilityOf(ImportProducts));
 		ImportProducts.click();
 	}
 	
-	
+	public void importingAllProducts() {
+		ImportProductDropdown.click();
+		AllProducts.click();
+		ConfirmButton.click();
+	}
 
 }
