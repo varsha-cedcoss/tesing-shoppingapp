@@ -181,9 +181,9 @@ public class UIElement implements  WebElement, WrapsElement, Locatable {
     }
 
     public WebElement getWrappedElement() {
-   //     if (this.webElement == null) {
+        if (this.webElement == null) {
             this.webElement = DriverManager.getDriver().findElement(this.by);
-   //     }
+        }
         return this.webElement;
     }
     
@@ -209,6 +209,10 @@ public class UIElement implements  WebElement, WrapsElement, Locatable {
         Reporter.log("<br>Scroll [" + elementName + "] to view on [" + pageName + "]");
         String script = "arguments[0].scrollIntoView(true);";
         ((JavascriptExecutor) DriverManager.getDriver()).executeScript(script, getWrappedElement());
+    }
+    
+    public void scrollToTop() {
+    	((JavascriptExecutor) DriverManager.getDriver()).executeScript("window.scrollTo(0, 0)");
     }
 
     @Override
@@ -240,8 +244,8 @@ public class UIElement implements  WebElement, WrapsElement, Locatable {
 
 	@Override
 	public String getAttribute(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getWrappedElement().getAttribute(name);
 	}
 
 	@Override

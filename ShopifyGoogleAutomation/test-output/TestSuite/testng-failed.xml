@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Demo(failed)">
+    <classes>
+      <class name="TestScripts.WebHook">
+        <methods>
+          <include name="verifyingAfterRefundInventoryStockisAddedBack"/>
+          <include name="VerifyingUpdateInventoryAfterCreatingOrder"/>
+          <include name="verifyingWhenImportLimitReachedDelete1VariantAdd2VariantThen1VariantShouldBeAdded"/>
+          <include name="verifyingDeleteProduct"/>
+          <include name="verifyingIfSyncDisableThenNotUpdating"/>
+          <include name="verifyingNewProductCreatedInWalmart"/>
+          <include name="updatingSimpleProductAttributesandVerifyingInWalmart"/>
+          <include name="closeAllBrowsers"/>
+          <include name="updatingParametersForVariantsandVerifyingInWalmart"/>
+          <include name="verifyingAddVariantForProductHavingVariants"/>
+          <include name="getResult"/>
+          <include name="endReport"/>
+          <include name="setBrowserBeforeClass"/>
+          <include name="verifyingCreateProductWithExistingProductType"/>
+          <include name="verifyingIfSyncDisabledForAParticularAttributeThenNotUpdating"/>
+          <include name="setBrowserBeforeTest"/>
+          <include name="verifyingInventoryPolicyandInventoryManagement"/>
+          <include name="setBrowserBeforeMethods"/>
+          <include name="setScreenCaptureTrue"/>
+          <include name="verifyingTagsUpdateforSimpleProducts"/>
+          <include name="setBrowserBeforeSuite"/>
+          <include name="setupExtentReport"/>
+          <include name="verifyingBulkInventoryUpdate"/>
+          <include name="verifyingIfSyncDisableThenVariantNotUpdating"/>
+          <include name="addLogsIntoExtentReport"/>
+          <include name="verifyingInventoryPolicyandInventoryManagementForVariants"/>
+          <include name="verifyingDeleteVariant"/>
+          <include name="verifyingDuplicateSkuUpdate"/>
+          <include name="verifyingNoProductCreatedWhenAutoProductCreateIsOff"/>
+          <include name="BeforeMethod"/>
+        </methods>
+      </class> <!-- TestScripts.WebHook -->
+      <class name="TestScripts.SalesOrder">
+        <methods>
+          <include name="LoggingInShopify"/>
+          <include name="setBrowserBeforeSuite"/>
+          <include name="setupExtentReport"/>
+          <include name="fetchingOrders"/>
+          <include name="addLogsIntoExtentReport"/>
+          <include name="closeAllBrowsers"/>
+          <include name="syncShipment"/>
+          <include name="getResult"/>
+          <include name="endReport"/>
+          <include name="setBrowserBeforeClass"/>
+          <include name="setBrowserBeforeTest"/>
+          <include name="updatingOrderStatusThroughLink"/>
+          <include name="setBrowserBeforeMethods"/>
+          <include name="setScreenCaptureTrue"/>
+        </methods>
+      </class> <!-- TestScripts.SalesOrder -->
+      <class name="TestScripts.ManageProducts">
+        <methods>
+          <include name="closeAllBrowsers"/>
+          <include name="setBrowserBeforeSuite"/>
+          <include name="setupExtentReport"/>
+          <include name="getResult"/>
+          <include name="BeforeMethod"/>
+          <include name="endReport"/>
+          <include name="setBrowserBeforeClass"/>
+          <include name="setBrowserBeforeTest"/>
+          <include name="addLogsIntoExtentReport"/>
+          <include name="verifyingSyncwithShopify"/>
+          <include name="setBrowserBeforeMethods"/>
+          <include name="setScreenCaptureTrue"/>
+        </methods>
+      </class> <!-- TestScripts.ManageProducts -->
+      <class name="TestScripts.DashBoard">
+        <methods>
+          <include name="setBrowserBeforeSuite"/>
+          <include name="setupExtentReport"/>
+          <include name="clickingAllLinks"/>
+          <include name="addLogsIntoExtentReport"/>
+          <include name="BeforeMethod"/>
+          <include name="closeAllBrowsers"/>
+          <include name="clickingAllOptions"/>
+          <include name="getResult"/>
+          <include name="endReport"/>
+          <include name="setBrowserBeforeClass"/>
+          <include name="setBrowserBeforeTest"/>
+          <include name="setBrowserBeforeMethods"/>
+          <include name="setScreenCaptureTrue"/>
+        </methods>
+      </class> <!-- TestScripts.DashBoard -->
+      <class name="TestScripts.ImportExport">
+        <methods>
+          <include name="closeAllBrowsers"/>
+          <include name="BeforeMethod"/>
+          <include name="setBrowserBeforeSuite"/>
+          <include name="setupExtentReport"/>
+          <include name="getResult"/>
+          <include name="exportingCsvandUpdating"/>
+          <include name="endReport"/>
+          <include name="setBrowserBeforeClass"/>
+          <include name="setBrowserBeforeTest"/>
+          <include name="addLogsIntoExtentReport"/>
+          <include name="setBrowserBeforeMethods"/>
+          <include name="setScreenCaptureTrue"/>
+        </methods>
+      </class> <!-- TestScripts.ImportExport -->
+      <class name="TestScripts.FailedOrders">
+        <methods>
+          <include name="closeAllBrowsers"/>
+          <include name="setBrowserBeforeSuite"/>
+          <include name="setupExtentReport"/>
+          <include name="getResult"/>
+          <include name="endReport"/>
+          <include name="setBrowserBeforeClass"/>
+          <include name="setBrowserBeforeTest"/>
+          <include name="addLogsIntoExtentReport"/>
+          <include name="updatingOrderStatus"/>
+          <include name="LoggingInShopify"/>
+          <include name="setBrowserBeforeMethods"/>
+          <include name="setScreenCaptureTrue"/>
+        </methods>
+      </class> <!-- TestScripts.FailedOrders -->
+      <class name="TestScripts.PricingPlan">
+        <methods>
+          <include name="closeAllBrowsers"/>
+          <include name="setBrowserBeforeSuite"/>
+          <include name="setupExtentReport"/>
+          <include name="BeforeMethod"/>
+          <include name="getResult"/>
+          <include name="endReport"/>
+          <include name="setBrowserBeforeClass"/>
+          <include name="verifyingPricingPlanAnnuallyAndMonthly"/>
+          <include name="setBrowserBeforeTest"/>
+          <include name="addLogsIntoExtentReport"/>
+          <include name="setBrowserBeforeMethods"/>
+          <include name="setScreenCaptureTrue"/>
+        </methods>
+      </class> <!-- TestScripts.PricingPlan -->
+    </classes>
+  </test> <!-- Demo(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->

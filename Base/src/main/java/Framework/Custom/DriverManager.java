@@ -8,11 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverManager {
-	private  static String previousDriver = null;
-	private  static String previousPortNumber = null;
 	private static WebDriver drived = null;
-	private static WebDriver drived_8080 = null;
-	
 	private static List<WebDriverMethods> webDriverThreadPool =
 			Collections.synchronizedList(new ArrayList<WebDriverMethods>());
 	

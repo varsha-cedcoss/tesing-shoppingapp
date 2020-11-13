@@ -1,0 +1,424 @@
+<Application value="GoogleApp">
+
+			
+			<Page name="WebHook_Page">
+			
+					
+			
+			<Element name="ShopifyLogin" type="TextBox" locator="xpath"
+			selector="//input[@type='email']" />	
+			
+			<Element name="NextButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'ui-button') and text()='Next']" />
+			
+			<Element name="ShopifyPassword" type="TextBox" locator="xpath"
+			selector="//div[contains(@class,'next-field__connected-wrapper ui-password')]/child::input" />
+			
+			<Element name="LoginButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'ui-button') and text()='Log in']" />
+						
+			<Element name="InstallAppButton" type="Link" locator="xpath"
+			selector="//*[contains(@class,'shopify-button') and text()='Install App']" />
+			
+			<Element name="AddAppButton" type="Link" locator="xpath"
+			selector="//*[@class='ui-app-store-hero__cta']/child::a[contains(text(),'Add app')]" />
+			
+			<Element name="ShopifyUrlTextbox" type="Link" locator="xpath"
+			selector="//*[contains(@class,'marketing-input-wrapper')]/child::span[contains(text(),'Your store’s URL')]/following-sibling::input" />
+			
+			
+			<Element name="AppsOptionInShopify" type="Link" locator="xpath"
+			selector="//*[contains(@class,'Polaris-Navigation__Text_yj3uv') and text()='Apps']" />
+			
+			<Element name="WalmartIntegration" type="Link" locator="xpath"
+			selector="//*[contains(@class,'_2eUsl') and text()='Walmart Integration']" />
+			
+			
+			<Element name="Products_Shopify" type="Link" locator="xpath"
+			selector="//*[contains(@class,'Polaris-Navigation__Text_') and text()='Products']" />
+			
+			<Element name="AddProductButton" type="Link" locator="xpath"
+			selector="//*[contains(@class,'Polaris-Button__Text_') and text()='Add product']" />
+			
+			<Element name="TitleTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='title']" />
+			
+			<Element name="DescriptionTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@id,'tinymce') and @data-id='product-description']" />
+			
+			<Element name="ProductTypeTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@placeholder,'e.g. Shirts')]" />	
+			
+			<Element name="VendorTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@placeholder,'e.g. Nike')]" />	
+			
+			<Element name="PriceTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='price']" />
+			
+			<Element name="CostPerItemTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='unitCost']" />
+			
+			<Element name="QuantityAvailableTextBox" type="TextBox" locator="xpath"
+			selector="//input[@id='AdjustQuantityPopoverTextFieldActivator']" />
+			
+			<Element name="WeightTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='weight']" />
+			
+			<Element name="SaveButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Button__Text_yj3uv') and text()='Save'])[1]" />
+			
+			<Element name="NotMappedProductsWIA" type="Link" locator="xpath"
+			selector="//*[contains(@class,'tab-view-listing')]/child::a[contains(text(),'Not Mapped Products')]" />
+			
+			<Element name="FilterProductsTextBox" type="TextBox" locator="xpath"
+			selector="//*[contains(@placeholder,'Filter products')]" />
+			
+			<Element name="AfterFilterProduct" type="Link" locator="xpath"
+			selector="//div[contains(@testid,'Item-Content')]" />
+			
+			
+			<Element name="NumOfVariantsAfterClickEdit" type="Link" locator="xpath"
+			selector="//ul[@id='variantsList']/child::li" />
+			
+			
+			<Element name="EditButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Button__Text_') and text()='Edit'])[1]" />
+			
+			
+			<Element name="SizeTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='selectedOptions.0.value']" />
+			
+			
+			<Element name="ColorTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='selectedOptions.1.value']" />
+			
+			<Element name="SKUTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='sku']" />
+			
+			
+			<Element name="BarCodeTextBox" type="TextBox" locator="xpath"
+			selector="//input[@name='barcode']" />
+			
+			<Element name="VariantsCheckbox" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_3tI7Z') and text()='This product has multiple options, like different sizes or colors']" />
+			
+			<Element name="FirstVariantTextBox" type="TextBox" locator="xpath"
+			selector="//div[@class='_2o3Ns']/child::div/child::div[contains(@class,'_3GizD')]/child::input[@id='PolarisTextField68']" />
+			
+			<Element name="FirstVariantValueTextBox" type="TextBox" locator="xpath"
+			selector="//input[@placeholder='Separate options with a comma']" />
+			
+			<Element name="AddAnotherOptionforVariant" type="Link" locator="xpath"
+			selector="//button[@class='_1wLbD']/span/child::span[contains(text(),'Add another option')]" />
+			
+			<Element name="TrackQuantityCheckbox" type="Link" locator="xpath"
+			selector="//label[@for='InventoryTrackingTracked']" />
+			
+			<Element name="TrackQuantityCheck" type="Link" locator="xpath"
+			selector="//label[@for='InventoryTrackingTracked']/descendant::input" />
+			
+			
+			<Element name="AddImageButton" type="Link" locator="xpath"
+			selector="//div[contains(@class,'_2qik1') and text()='Add image']" />
+			
+			<Element name="DeleteVariantButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text_') and text()='Delete variant']" />
+			
+			<Element name="DeleteVariantDialogButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Button__Text_') and text()='Delete variant'])[2]" />
+			
+			<Element name="DeleteProductButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text_') and text()='Delete product']" />
+			
+			<Element name="DeleteProductDialogButton" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Button__Text_') and text()='Delete product'])[2]" />
+			
+			<Element name="AddFileButton" type="Link" locator="xpath"
+			selector="//div[contains(@class,'_2qik1') and text()='Add file']" />
+			
+			<Element name="AllProductsCheckBox" type="Link" locator="xpath"
+			selector="//div[contains(@class,'_2PTXa _1pjCz')]" />
+			
+			<Element name="EditProductButton" type="Link" locator="xpath"
+			selector="//span[contains(text(),'Edit products')]/ancestor::button" />
+			
+			<Element name="AddFieldsButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'ui-button') and contains(text(),'Add fields')]" />
+			
+			<Element name="MoreActionsButton" type="Link" locator="xpath"
+			selector="//span[@class='_29f6N']/child::span[contains(text(),'More actions')]" />
+			
+			<Element name="DeleteProductsOption" type="Link" locator="xpath"
+			selector="//div[contains(@class,'_3jzNy') and text()='Delete products']" />
+			
+			<Element name="DeleteAllProductsButtonOnPopup" type="Link" locator="xpath"
+			selector="//span[contains(@class,'_1GgwJ') and text()='Delete']" />
+			
+			<Element name="TagsTextBox" type="TextBox" locator="xpath"
+			selector="//input[@placeholder='Vintage, cotton, summer']" />
+			
+			<Element name="Orders_Shopify" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text_') and text()='Orders']" />
+			
+			<Element name="CreateOrderButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text_') and text()='Create order']" />
+			
+			<Element name="SearchProductsTextBoxInOrderPage" type="TextBox" locator="xpath"
+			selector="//button[contains(@name,'button') and text()='Browse products']/parent::div/child::div/child::input[@placeholder='Search products' ]" />
+			
+			<Element name="SearchProductsTextBoxInOrderPagePopup" type="TextBox" locator="xpath"
+			selector="(//input[@placeholder='Search products'])[2]" />
+			
+			<Element name="AddtoOrderButton" type="Link" locator="xpath"
+			selector="//button[contains(@id,'add-products') and text()='Add to order']" />
+			
+			<Element name="MarkAsPaidButton" type="Link" locator="xpath"
+			selector="//button[contains(@name,'button') and text()='Mark as paid']" />
+			
+			<Element name="CreateOrderButtonAfterPopup" type="Link" locator="xpath"
+			selector="//button[contains(@type,'submit') and text()='Create order']" />
+			
+			<Element name="AddVariantButtonforProductHavingVariant" type="Link" locator="xpath"
+			selector="//button[contains(@class,'Polaris-Link_') and text()='Add variant']" />
+			
+			<Element name="RefundLink" type="Link" locator="xpath"
+			selector="//button[@id='refund-restock']" />
+			
+			<Element name="IncreasingProductCount" type="Link" locator="xpath"
+			selector="(//div[contains(@class,'Polaris-TextField__Segment_')])[1]/descendant::span" />
+			
+			<Element name="RefundButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Content_')]/descendant::span[contains(@class,'Polaris-Button__Text_') and contains( text(),'Refund')]" />
+			
+			<Element name="Settings" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Navigation__Text') and text()='Settings']" />
+			
+			<Element name="Payments" type="Link" locator="xpath"
+			selector="//div/child::p[text()='Payments']" />
+			
+			<Element name="Manage" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text') and text()='Manage']/ancestor::a" />
+			
+			<Element name="AddCurrency" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text') and text()='Add currency']/ancestor::button" />
+			
+			<Element name="SearchCurrencies" type="TextBox" locator="xpath"
+			selector="//input[@placeholder='Search currencies']" />
+			
+			<Element name="AddCurrenciesButton" type="Link" locator="xpath"
+			selector="//span[contains(@class,'Polaris-Button__Text') and text()='Add currencies']/ancestor::button" />
+			
+			<Element name="Save" type="Link" locator="xpath"
+			selector="(//span[contains(@class,'Polaris-Button__Text') and text()='Save']/ancestor::button)[1]" />
+			
+			
+			
+			
+			</Page>
+			
+			
+			<Page name ="Orders_Page">
+			
+			<Element name="AWSOption" type="Link" locator="xpath"
+			selector="//select[@id='Select1']" />
+			
+			<Element name="Username" type="TextBox" locator="xpath"
+			selector="//input[@id='email']" />
+			
+			<Element name="Password" type="TextBox" locator="xpath"
+			selector="//input[@id='password']" />
+			
+			<Element name="SignInButton" type="Link" locator="xpath"
+			selector="//button[contains(@class,'Polaris-Button Polaris-Button') and text()='Sign In']" />
+			
+			<Element name="UserIdTextBox" type="TextBox" locator="xpath"
+			selector="//input[@id='TextField1']" />
+			
+			<Element name="LoginButton" type="Link" locator="xpath"
+			selector="//span[text()='Login']/ancestor::button" />
+			
+			<Element name="Orders" type="Link" locator="xpath"
+			selector="//span[@class='Polaris-Navigation__Text' and text()='Orders']/ancestor::button" />
+			
+			<Element name="SyncOrders" type="Link" locator="xpath"
+			selector="//div[@class='Polaris-Page-Header__MainContent']/child::div[contains(@class,'PrimaryAction')]/descendant::span[text()='Sync Orders']/ancestor::button" />
+			
+			
+			
+			
+			
+			
+			</Page>
+			
+			<Page name="ImportUpload_Page">
+			
+			<Element name="ImportUpload" type="Link" locator="xpath"
+			selector="//span[@class='Polaris-Navigation__Text' and text()='Import/Upload']/ancestor::button" />
+			
+			<Element name="ImportProduct" type="Link" locator="xpath"
+			selector="//p[text()='Import Products']"/>
+			
+			<Element name="Proceed" type="Link" locator="xpath"
+			selector="//span[text()='Proceed']/ancestor::button" />
+			
+			<Element name="UploadProduct" type="Link" locator="xpath"
+			selector="//p[text()='Upload Products']"/>
+			
+			<Element name="UploadProductButton" type="Link" locator="xpath"
+			selector="//span[text()='Upload Products']/ancestor::button"/>
+			
+			<Element name="SelectProfile" type="Link" locator="xpath"
+			selector="//select[@class='Polaris-Select__Input']"/>
+			
+			
+			
+			
+			</Page>
+			
+			<Page name="CustomProfile_Page">
+			
+			<Element name="CustomProfile" type="Link" locator="xpath"
+			selector="//span[text()='Custom Profile']/ancestor::button"/>
+			
+			<Element name="CreateProfileButton" type="Link" locator="xpath"
+			selector="//div[@class='Polaris-Page-Header__MainContent']/child::div[@class='Polaris-Page-Header__PrimaryAction']/descendant::span[text()='Create Profile']/ancestor::button"/>
+			
+			<Element name="ProfileName" type="TextBox" locator="xpath"
+			selector="//input[@placeholder='Enter Profile Name']"/>
+			
+			<Element name="SaveButton" type="Link" locator="xpath"
+			selector="(//span[text()='Save And Next']/ancestor::button)[2]"/>
+			
+			<Element name="TargetCountry" type="Link" locator="xpath"
+			selector="//option[text()='Target Country']/parent::select"/>
+			
+			<Element name="ContentLanguage" type="Link" locator="xpath"
+			selector="//option[text()='Content Language']/parent::select"/>
+			
+			<Element name="Currency" type="Link" locator="xpath"
+			selector="//option[text()='Currency']/parent::select"/>
+			
+			<Element name="SelectAttribute" type="Link" locator="xpath"
+			selector="//option[text()='Select Attribute']/parent::select"/>
+			
+			<Element name="SelectOperator" type="Link" locator="xpath"
+			selector="//option[text()='Select Operator']/parent::select"/>
+			
+			<Element name="FilterValue" type="TextBox" locator="xpath"
+			selector="//input[@placeholder='Filter Value']"/>
+			
+			<Element name="CreateProfile" type="Link" locator="xpath"
+			selector="(//span[text()='Create Profile']/ancestor::button)[1]"/>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</Page>
+			
+			
+			
+			<Page name="Products_Page">
+			
+			<Element name="Products" type="Link" locator="xpath"
+			selector="//span[text()='Products']/ancestor::button"/>
+			
+			<Element name="SelectProcess" type="Link" locator="xpath"
+			selector="//option[text()='SKU(s)']/parent::select"/>
+			
+			<Element name="YesButton" type="Link" locator="xpath"
+			selector="//span[text()='Yes']/ancestor::button"/>
+			
+			<Element name="BulkActions" type="Link" locator="xpath"
+			selector="//span[text()='Bulk actions']/ancestor::button"/>
+			
+			<Element name="SyncWithShopify" type="Link" locator="xpath"
+			selector="//div[text()='Sync with Shopify']"/>
+			
+			
+			
+			
+			</Page>
+			
+			
+			
+			<Page name="Onboarding_Page">
+			
+			<Element name="Apps" type="Link" locator="xpath"
+			selector="//span[text()='Apps']/ancestor::a"/>
+			
+			<Element name="ShopifyStore" type="Link" locator="xpath"
+			selector="//span[text()='Visit the Shopify App Store']/ancestor::a"/>
+			
+			<Element name="SearchApps" type="TextBox" locator="xpath"
+			selector="//div[@class='grid__item']/descendant::input[@placeholder='Search apps']"/>
+			
+			<Element name="GoogleApp" type="Link" locator="xpath"
+			selector="(//h4[text()='Shopping Feed for Google']/parent::a)[1]"/>
+			
+			<Element name="AddApp" type="Link" locator="xpath"
+			selector="//input[@type='submit' and @value='Add app']"/>
+			
+			<Element name="InstallApp" type="Link" locator="xpath"
+			selector="//button[text()='Install app']"/>
+			
+			<Element name="GoogleShopifyApp" type="Link" locator="xpath"
+			selector="//div[text()='Shopping Feed for Google']"/>
+			
+			<Element name="ConnectGoogleAccount" type="Link" locator="xpath"
+			selector="//span[text()='Connect Your Google Account ']/ancestor::button"/>
+			
+			<Element name="AnotherAccount" type="Link" locator="xpath"
+			selector="//div[text()='Use another account']"/>
+			
+			<Element name="Email" type="TextBox" locator="xpath"
+			selector="//input[@type='email']"/>
+			
+			<Element name="NextButton" type="Link" locator="xpath"
+			selector="//span[text()='Next']/parent::button"/>
+			
+			<Element name="Password" type="TextBox" locator="xpath"
+			selector="//input[@type='password']"/>
+			
+			<Element name="AllowButton" type="Link" locator="xpath"
+			selector="//span[text()='Allow']/parent::button"/>
+			
+			<Element name="YesButton" type="Link" locator="xpath"
+			selector="//span[text()='Yes']/ancestor::button"/>
+			
+			<Element name="FreePlan" type="Link" locator="xpath"
+			selector="//h1[text()='$ 0']/following-sibling::button"/>
+			
+			<Element name="NextAfterBuy" type="Link" locator="xpath"
+			selector="//span[text()='Next']/ancestor::button"/>
+			
+			<Element name="TargetCountry" type="Link" locator="xpath"
+			selector="//option[text()='Target Country']/parent::select"/>
+			
+			<Element name="ContentLanguage" type="Link" locator="xpath"
+			selector="//option[text()='Content Language']/parent::select"/>
+			
+			<Element name="Currency" type="Link" locator="xpath"
+			selector="//option[text()='Currency']/parent::select"/>
+			
+			<Element name="SaveAndComplete" type="Link" locator="xpath"
+			selector="//span[contains(text(),'Save')]/ancestor::button"/>
+			
+			
+			
+			
+			
+			</Page>
+			
+			
+			
+			
+			
+			
+			
+			
+			</Application>

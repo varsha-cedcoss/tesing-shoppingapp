@@ -1,6 +1,4 @@
 package Framework.Custom;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,21 +7,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
-import org.openqa.selenium.safari.SafariDriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 class WebDriverMethods {
@@ -62,6 +55,7 @@ class WebDriverMethods {
 	 * @return WebDriver
 	 *
 	 */
+	@SuppressWarnings("deprecation")
 	public WebDriver getDriver(String portnumber) {
 		if (portnumber.equals("0000")) {
 			if (null == webDriver || ((RemoteWebDriver) webDriver).getSessionId() == null) {
@@ -83,23 +77,25 @@ class WebDriverMethods {
 					chromePreferences.put("download.prompt_for_download", "false");
 					chromePreferences.put("download.default_directory", Config.TEMP_DATA_PATH);
 					capabilities.setCapability("chrome.prefs", chromePreferences);
-					
+					//String chromeProfile="/home/cedcoss/.config/google-chrome/Default";
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--test-type");
 					options.addArguments("start-maximized");
 					options.addArguments("--disable-web-security");
 					options.addArguments("--allow-running-insecure-content");
+					options.addArguments("chrome.switches", "--disable-extensions");
+					//options.addArguments("user-data-dir=" + chromeProfile);
 					options.setExperimentalOption("prefs", chromePreferences);
 					if (headless)
 						options.addArguments("headless");
 					capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-
+					
 					LoggingPreferences logPrefs = new LoggingPreferences();
 					logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
 					capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
 
 					if (!Config.EXECUTION_ENVIRONMENT.equalsIgnoreCase("remote")) {
-						System.setProperty("webdriver.chrome.driver", "/home/cedcoss/Downloads/CedcossAutomation/WIA/chromedriver");
+						System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/chromedriver");
 //						ChromeDriverManager.getInstance().setup();
 						webDriver = new ChromeDriver(capabilities);
 						
@@ -108,14 +104,47 @@ class WebDriverMethods {
 					}
 					break;
 
+				case "FIREFOX":
+			        capabilities = DesiredCapabilities.firefox();
+								setPlatform();
+								ProfilesIni profiles=new ProfilesIni();
+								FirefoxProfile profile = profiles.getProfile("default");
+								FirefoxOptions option = new FirefoxOptions();
+								if (headless)
+									option.setHeadless(true);
+							//	option.setCapability("marionette", false);
+								profile.setAcceptUntrustedCertificates(true);
+								profile.setPreference("browser.download.folderList", 2);
+								profile.setPreference("browser.download.manager.showWhenStarting", false);
+								profile.setPreference("browser.download.dir", Config.TEMP_DATA_PATH);
+								profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
+										"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;" + "application/pdf;"
+												+ "application/vnd.openxmlformats-officedocument.wordprocessingml.document;"
+												+ "text/plain;" + "text/csv" + "application/zip");
+								capabilities.setAcceptInsecureCerts(true);
+								capabilities.setCapability(FirefoxDriver.PROFILE, profile);
+								capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, option);
+								if (!Config.EXECUTION_ENVIRONMENT.equalsIgnoreCase("remote")) {
+									System.setProperty("webdriver.gecko.driver", "/home/cedcoss/Documents/BigComAutomation/BigCom/geckodriver");
+									System.out.println("Launching Firefox");
+//									FirefoxDriverManager.getInstance().setup();
+									webDriver = new FirefoxDriver(capabilities);
+							//		SessionId ses =  ((RemoteWebDriver)webDriver).getSessionId();
+								//	System.out.println("Session Id is  : "+ses);
+
+
+								}
+		
+				break;
+			
 					default:
 					throw new RuntimeException("Invalid browser: " + browser);
 				}
 
-			
-				webDriver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-				webDriver.manage().timeouts().setScriptTimeout(25, TimeUnit.SECONDS);
-				webDriver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+			//
+//				webDriver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+//				webDriver.manage().timeouts().setScriptTimeout(25, TimeUnit.SECONDS);
+//				webDriver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 				if (!browser.equalsIgnoreCase("chrome")) {
 					webDriver.manage().window().maximize();
 				}

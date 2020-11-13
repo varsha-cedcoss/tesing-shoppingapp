@@ -78,7 +78,7 @@ public abstract class commonTest {
     @BeforeMethod
     public void setupExtentReport(Method method) {        
     	logger = extent.startTest((this.getClass().getSimpleName() + " :: " + method.getName()), method.getName());
-    	DriverManager.getDriver().get("https://admin.apps.cedcommerce.com/site/login");
+    	DriverManager.getDriver().get("https://apps.cedcommerce.com/admin-panel/app/auth/login");
     }
 
 
